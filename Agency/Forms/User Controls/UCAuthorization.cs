@@ -27,6 +27,8 @@ namespace Agency
                 this.Hide();
                 this.Parent.Hide();
                 BuyerInterface buyerInterface = new(buyerServ.GetBuyer(tbLogin.Text));
+                buyerInterface.Show();
+                
                 return;
             }
             MessageBox.Show("Неверный логин или пароль", "Ошибка");

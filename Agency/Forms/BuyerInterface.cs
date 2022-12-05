@@ -22,7 +22,17 @@ namespace Agency
 
         private void BuyerInterface_Load(object sender, EventArgs e)
         {
-            
+            lblCurrUserName.Text += buyer.FioBuyer;
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }
