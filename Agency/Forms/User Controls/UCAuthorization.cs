@@ -22,7 +22,11 @@ namespace Agency
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            if (buyerServ.IsExist(tbLogin.Text, tbPassword.Text))
+            this.Hide();
+            this.Parent.Hide();
+            BuyerInterface buyerInterface = new(buyerServ.GetBuyer("bulat123"));
+            buyerInterface.Show();
+/*            if (buyerServ.IsExist(tbLogin.Text, tbPassword.Text))
             {
                 this.Hide();
                 this.Parent.Hide();
@@ -31,7 +35,7 @@ namespace Agency
                 
                 return;
             }
-            MessageBox.Show("Неверный логин или пароль", "Ошибка");
+            MessageBox.Show("Неверный логин или пароль", "Ошибка");*/
 
         }
 

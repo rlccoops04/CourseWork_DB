@@ -3,27 +3,22 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Agency.Services
 {
-    public class BuyerService
+    public class ApartmentService
     {
         private AgencyDbContext context = new();
-        public List<Buyer> GetBuyers()
+        public List<Apartment> GetApartments()
         {
-            var buyers = context.Buyers.Include(buyers => buyers.Deals).Include(buyers => buyers.Requests).ToList();
-            return buyers;
+            var apartments = context.Apartments.Include(apartments => apartments.LoginOwnerNavigation).ToList();
+            return apartments;
         }
-        public Buyer GetBuyer(string Login)
+        public Apartment GetApartment(string KadastrNom)
         {
-            return GetBuyers().FirstOrDefault(buyer => buyer.LoginBuyer == Login);
-        }
-        public bool IsExist(string Login, string Password)
-        {
-            return GetBuyers().Any(x => x.LoginBuyer == Login && x.PasswordBuyer == Password);
+            return GetApartments().FirstOrDefault(apartment => apartment.KadastrNom == KadastrNom);
         }
         public bool Add(string Fio, string Passport, string NomTel, string Login, string Password)
         {
@@ -43,20 +38,6 @@ namespace Agency.Services
             context.Buyers.Add(buyer);
             context.SaveChanges();
             return true;
-        }
-        public bool ChangeFio(string Login, string newFio)
-        {
-            var Buyer = GetBuyer(Login);
-            Buyer.FioBuyer = newFio;
-            try
-            {
-                context.SaveChanges();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
         }
     }
 }

@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BuyerInterface));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblCurrUserName = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnProfile = new System.Windows.Forms.Button();
+            this.btnKatalog = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -62,23 +62,25 @@
             this.lblCurrUserName.Size = new System.Drawing.Size(0, 23);
             this.lblCurrUserName.TabIndex = 1;
             // 
-            // button1
+            // btnProfile
             // 
-            this.button1.Location = new System.Drawing.Point(12, 179);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(171, 53);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Мой профиль";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnProfile.Location = new System.Drawing.Point(12, 179);
+            this.btnProfile.Name = "btnProfile";
+            this.btnProfile.Size = new System.Drawing.Size(171, 53);
+            this.btnProfile.TabIndex = 2;
+            this.btnProfile.Text = "Мой профиль";
+            this.btnProfile.UseVisualStyleBackColor = true;
+            this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
-            // button2
+            // btnKatalog
             // 
-            this.button2.Location = new System.Drawing.Point(12, 238);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(171, 53);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Каталог квартир";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnKatalog.Location = new System.Drawing.Point(12, 238);
+            this.btnKatalog.Name = "btnKatalog";
+            this.btnKatalog.Size = new System.Drawing.Size(171, 53);
+            this.btnKatalog.TabIndex = 3;
+            this.btnKatalog.Text = "Каталог квартир";
+            this.btnKatalog.UseVisualStyleBackColor = true;
+            this.btnKatalog.Click += new System.EventHandler(this.btnKatalog_Click);
             // 
             // button3
             // 
@@ -138,8 +140,8 @@
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnKatalog);
+            this.Controls.Add(this.btnProfile);
             this.Controls.Add(this.lblCurrUserName);
             this.Controls.Add(this.pictureBox1);
             this.MaximizeBox = false;
@@ -156,8 +158,8 @@
 
         private PictureBox pictureBox1;
         private Label lblCurrUserName;
-        private Button button1;
-        private Button button2;
+        private Button btnProfile;
+        private Button btnKatalog;
         private Button button3;
         private Button button4;
         private Button button5;
