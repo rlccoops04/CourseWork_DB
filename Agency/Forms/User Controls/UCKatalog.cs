@@ -24,13 +24,14 @@ namespace Agency
         private void UCKatalog_Load(object sender, EventArgs e)
         {
             int i = 0;
-            foreach (Apartment apartment in apartmentServ.GetApartments())
+            foreach (Apartment apartment in apartmentServ.GetFreeAparts())
             {
                 ucApartment = new(apartment);
                 ucApartment.Location = new Point(0, i);
                 pnlAparts.Controls.Add(ucApartment);
                 i += 240;
             }
+            lblfound.Text += apartmentServ.GetFreeAparts().Count.ToString();
         }
     }
 }

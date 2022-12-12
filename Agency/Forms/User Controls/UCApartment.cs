@@ -30,6 +30,42 @@ namespace Agency
             lblLivespace.Text += apartment.LiveSpace;
             lblType.Text += apartment.TypeBuild;
             lblYear.Text += apartment.YearBuild;
+            lblMetro.Text += apartment.Metro;
+            lblFurniture.Text += apartment.Furniture;
+        }
+
+        private void UCApartment_MouseEnter(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Gainsboro;
+        }
+
+        private void UCApartment_MouseLeave(object sender, EventArgs e)
+        {
+            BackColor = Color.Transparent;
+        }
+
+        private void lblLivespace_MouseEnter(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Gainsboro;
+
+        }
+
+        private void lblLivespace_MouseLeave(object sender, EventArgs e)
+        {
+            BackColor = Color.Transparent;
+
+        }
+
+        private void pictureBox1_MouseEnter(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Gainsboro;
+
+        }
+
+        private void pictureBox1_MouseLeave(object sender, EventArgs e)
+        {
+            BackColor = Color.Transparent;
+
         }
     }
 }

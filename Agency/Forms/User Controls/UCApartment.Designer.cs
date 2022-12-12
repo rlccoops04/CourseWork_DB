@@ -36,6 +36,8 @@
             this.lblType = new System.Windows.Forms.Label();
             this.lblYear = new System.Windows.Forms.Label();
             this.lblLivespace = new System.Windows.Forms.Label();
+            this.lblMetro = new System.Windows.Forms.Label();
+            this.lblFurniture = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,11 +45,14 @@
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Location = new System.Drawing.Point(14, 10);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(175, 175);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
+            this.pictureBox1.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
             // 
             // lblMainInfo
             // 
@@ -58,6 +63,8 @@
             this.lblMainInfo.Name = "lblMainInfo";
             this.lblMainInfo.Size = new System.Drawing.Size(0, 28);
             this.lblMainInfo.TabIndex = 1;
+            this.lblMainInfo.MouseEnter += new System.EventHandler(this.lblLivespace_MouseEnter);
+            this.lblMainInfo.MouseLeave += new System.EventHandler(this.lblLivespace_MouseLeave);
             // 
             // lblPrice
             // 
@@ -67,6 +74,8 @@
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(0, 28);
             this.lblPrice.TabIndex = 2;
+            this.lblPrice.MouseEnter += new System.EventHandler(this.lblLivespace_MouseEnter);
+            this.lblPrice.MouseLeave += new System.EventHandler(this.lblLivespace_MouseLeave);
             // 
             // lblAdress
             // 
@@ -76,39 +85,67 @@
             this.lblAdress.Name = "lblAdress";
             this.lblAdress.Size = new System.Drawing.Size(0, 20);
             this.lblAdress.TabIndex = 3;
+            this.lblAdress.MouseEnter += new System.EventHandler(this.lblLivespace_MouseEnter);
+            this.lblAdress.MouseLeave += new System.EventHandler(this.lblLivespace_MouseLeave);
             // 
             // lblType
             // 
             this.lblType.AutoSize = true;
-            this.lblType.Location = new System.Drawing.Point(208, 106);
+            this.lblType.Location = new System.Drawing.Point(208, 93);
             this.lblType.Name = "lblType";
             this.lblType.Size = new System.Drawing.Size(120, 20);
             this.lblType.TabIndex = 4;
             this.lblType.Text = "Тип постройки: ";
+            this.lblType.MouseEnter += new System.EventHandler(this.lblLivespace_MouseEnter);
+            this.lblType.MouseLeave += new System.EventHandler(this.lblLivespace_MouseLeave);
             // 
             // lblYear
             // 
             this.lblYear.AutoSize = true;
-            this.lblYear.Location = new System.Drawing.Point(208, 126);
+            this.lblYear.Location = new System.Drawing.Point(208, 113);
             this.lblYear.Name = "lblYear";
             this.lblYear.Size = new System.Drawing.Size(118, 20);
             this.lblYear.TabIndex = 5;
             this.lblYear.Text = "Год постройки: ";
+            this.lblYear.MouseEnter += new System.EventHandler(this.lblLivespace_MouseEnter);
+            this.lblYear.MouseLeave += new System.EventHandler(this.lblLivespace_MouseLeave);
             // 
             // lblLivespace
             // 
             this.lblLivespace.AutoSize = true;
-            this.lblLivespace.Location = new System.Drawing.Point(208, 146);
+            this.lblLivespace.Location = new System.Drawing.Point(208, 133);
             this.lblLivespace.Name = "lblLivespace";
             this.lblLivespace.Size = new System.Drawing.Size(128, 20);
             this.lblLivespace.TabIndex = 6;
             this.lblLivespace.Text = "Жилая площадь: ";
+            this.lblLivespace.MouseEnter += new System.EventHandler(this.lblLivespace_MouseEnter);
+            this.lblLivespace.MouseLeave += new System.EventHandler(this.lblLivespace_MouseLeave);
+            // 
+            // lblMetro
+            // 
+            this.lblMetro.AutoSize = true;
+            this.lblMetro.Location = new System.Drawing.Point(208, 153);
+            this.lblMetro.Name = "lblMetro";
+            this.lblMetro.Size = new System.Drawing.Size(61, 20);
+            this.lblMetro.TabIndex = 7;
+            this.lblMetro.Text = "Метро: ";
+            // 
+            // lblFurniture
+            // 
+            this.lblFurniture.AutoSize = true;
+            this.lblFurniture.Location = new System.Drawing.Point(208, 172);
+            this.lblFurniture.Name = "lblFurniture";
+            this.lblFurniture.Size = new System.Drawing.Size(70, 20);
+            this.lblFurniture.TabIndex = 8;
+            this.lblFurniture.Text = "Мебель: ";
             // 
             // UCApartment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.lblFurniture);
+            this.Controls.Add(this.lblMetro);
             this.Controls.Add(this.lblLivespace);
             this.Controls.Add(this.lblYear);
             this.Controls.Add(this.lblType);
@@ -119,6 +156,8 @@
             this.Name = "UCApartment";
             this.Size = new System.Drawing.Size(725, 198);
             this.Load += new System.EventHandler(this.UCApartment_Load);
+            this.MouseEnter += new System.EventHandler(this.UCApartment_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.UCApartment_MouseLeave);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -134,5 +173,7 @@
         private Label lblType;
         private Label lblYear;
         private Label lblLivespace;
+        private Label lblMetro;
+        private Label lblFurniture;
     }
 }

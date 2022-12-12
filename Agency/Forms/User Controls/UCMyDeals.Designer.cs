@@ -1,6 +1,6 @@
-﻿namespace Agency
+﻿namespace Agency.Forms.User_Controls
 {
-    partial class UCKatalog
+    partial class UCMyDeals
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -28,37 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.pnlAparts = new System.Windows.Forms.Panel();
+            this.lblfound = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(0, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(359, 46);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Свободные квартиры";
             // 
             // pnlAparts
             // 
             this.pnlAparts.AutoScroll = true;
-            this.pnlAparts.Location = new System.Drawing.Point(0, 87);
+            this.pnlAparts.Location = new System.Drawing.Point(0, 35);
             this.pnlAparts.Name = "pnlAparts";
-            this.pnlAparts.Size = new System.Drawing.Size(750, 488);
-            this.pnlAparts.TabIndex = 1;
+            this.pnlAparts.Size = new System.Drawing.Size(750, 468);
+            this.pnlAparts.TabIndex = 3;
             // 
-            // UCKatalog
+            // lblfound
+            // 
+            this.lblfound.AutoSize = true;
+            this.lblfound.BackColor = System.Drawing.Color.Transparent;
+            this.lblfound.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblfound.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblfound.Location = new System.Drawing.Point(0, 0);
+            this.lblfound.Name = "lblfound";
+            this.lblfound.Size = new System.Drawing.Size(206, 32);
+            this.lblfound.TabIndex = 2;
+            this.lblfound.Text = "Найдено сделок: ";
+            // 
+            // UCMyDeals
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnlAparts);
-            this.Controls.Add(this.label1);
-            this.Name = "UCKatalog";
-            this.Size = new System.Drawing.Size(750, 575);
-            this.Load += new System.EventHandler(this.UCKatalog_Load);
+            this.Controls.Add(this.lblfound);
+            this.Name = "UCMyDeals";
+            this.Size = new System.Drawing.Size(750, 503);
+            this.Load += new System.EventHandler(this.UCMyDeals_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -66,7 +68,7 @@
 
         #endregion
 
-        private Label label1;
         private Panel pnlAparts;
+        private Label lblfound;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Agency
 {
-    partial class UCBuyerProfile
+    partial class UCProfile
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCBuyerProfile));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCProfile));
             this.lblPassport = new System.Windows.Forms.Label();
             this.lblNomTel = new System.Windows.Forms.Label();
             this.lblLogin = new System.Windows.Forms.Label();
@@ -137,6 +137,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.Controls.Add(this.btnChange);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);

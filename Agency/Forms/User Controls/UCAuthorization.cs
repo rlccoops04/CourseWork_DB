@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Agency.Forms;
 using Agency.Services;
 
 namespace Agency
@@ -15,6 +16,7 @@ namespace Agency
     {
 
         private BuyerService buyerServ = new();
+        private OwnerService ownerServ = new();
         public UCAuthorization()
         {
             InitializeComponent();
@@ -24,8 +26,8 @@ namespace Agency
         {
             this.Hide();
             this.Parent.Hide();
-            BuyerInterface buyerInterface = new(buyerServ.GetBuyer("bulat123"));
-            buyerInterface.Show();
+            OwnerInterface ownerInterface = new(ownerServ.GetOwner("david111"));
+            ownerInterface.Show();
 /*            if (buyerServ.IsExist(tbLogin.Text, tbPassword.Text))
             {
                 this.Hide();

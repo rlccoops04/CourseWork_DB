@@ -33,11 +33,12 @@
             this.lblCurrUserName = new System.Windows.Forms.Label();
             this.btnProfile = new System.Windows.Forms.Button();
             this.btnKatalog = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnSearchAparts = new System.Windows.Forms.Button();
+            this.btnRequest = new System.Windows.Forms.Button();
+            this.btnAddRequest = new System.Windows.Forms.Button();
+            this.btnMyDeals = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.lblCurrPage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,7 +49,7 @@
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(171, 103);
+            this.pictureBox1.Size = new System.Drawing.Size(105, 103);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -82,41 +83,45 @@
             this.btnKatalog.UseVisualStyleBackColor = true;
             this.btnKatalog.Click += new System.EventHandler(this.btnKatalog_Click);
             // 
-            // button3
+            // btnSearchAparts
             // 
-            this.button3.Location = new System.Drawing.Point(12, 297);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(171, 53);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Поиск квартиры по параметрам";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnSearchAparts.Location = new System.Drawing.Point(12, 297);
+            this.btnSearchAparts.Name = "btnSearchAparts";
+            this.btnSearchAparts.Size = new System.Drawing.Size(171, 53);
+            this.btnSearchAparts.TabIndex = 4;
+            this.btnSearchAparts.Text = "Поиск квартиры по параметрам";
+            this.btnSearchAparts.UseVisualStyleBackColor = true;
+            this.btnSearchAparts.Click += new System.EventHandler(this.btnSearchAparts_Click);
             // 
-            // button4
+            // btnRequest
             // 
-            this.button4.Location = new System.Drawing.Point(12, 356);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(171, 53);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Мои заявки";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnRequest.Location = new System.Drawing.Point(12, 356);
+            this.btnRequest.Name = "btnRequest";
+            this.btnRequest.Size = new System.Drawing.Size(171, 53);
+            this.btnRequest.TabIndex = 5;
+            this.btnRequest.Text = "Мои заявки";
+            this.btnRequest.UseVisualStyleBackColor = true;
+            this.btnRequest.Click += new System.EventHandler(this.btnRequest_Click);
             // 
-            // button5
+            // btnAddRequest
             // 
-            this.button5.Location = new System.Drawing.Point(12, 415);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(171, 53);
-            this.button5.TabIndex = 6;
-            this.button5.Text = "Добавить заявку";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnAddRequest.Location = new System.Drawing.Point(12, 415);
+            this.btnAddRequest.Name = "btnAddRequest";
+            this.btnAddRequest.Size = new System.Drawing.Size(171, 53);
+            this.btnAddRequest.TabIndex = 6;
+            this.btnAddRequest.Text = "Добавить заявку";
+            this.btnAddRequest.UseVisualStyleBackColor = true;
+            this.btnAddRequest.Click += new System.EventHandler(this.btnAddRequest_Click);
             // 
-            // button6
+            // btnMyDeals
             // 
-            this.button6.Location = new System.Drawing.Point(12, 474);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(171, 53);
-            this.button6.TabIndex = 7;
-            this.button6.Text = "Мои покупки";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnMyDeals.Location = new System.Drawing.Point(12, 474);
+            this.btnMyDeals.Name = "btnMyDeals";
+            this.btnMyDeals.Size = new System.Drawing.Size(171, 53);
+            this.btnMyDeals.TabIndex = 7;
+            this.btnMyDeals.Text = "Мои покупки";
+            this.btnMyDeals.UseVisualStyleBackColor = true;
+            this.btnMyDeals.Click += new System.EventHandler(this.btnMyDeals_Click);
             // 
             // btnExit
             // 
@@ -130,16 +135,28 @@
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // lblCurrPage
+            // 
+            this.lblCurrPage.AutoSize = true;
+            this.lblCurrPage.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCurrPage.Location = new System.Drawing.Point(216, 12);
+            this.lblCurrPage.Name = "lblCurrPage";
+            this.lblCurrPage.Size = new System.Drawing.Size(0, 35);
+            this.lblCurrPage.TabIndex = 9;
+            // 
             // BuyerInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1012, 609);
+            this.Controls.Add(this.lblCurrPage);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnMyDeals);
+            this.Controls.Add(this.btnAddRequest);
+            this.Controls.Add(this.btnRequest);
+            this.Controls.Add(this.btnSearchAparts);
             this.Controls.Add(this.btnKatalog);
             this.Controls.Add(this.btnProfile);
             this.Controls.Add(this.lblCurrUserName);
@@ -160,10 +177,11 @@
         private Label lblCurrUserName;
         private Button btnProfile;
         private Button btnKatalog;
-        private Button button3;
-        private Button button4;
-        private Button button5;
-        private Button button6;
+        private Button btnSearchAparts;
+        private Button btnRequest;
+        private Button btnAddRequest;
+        private Button btnMyDeals;
         private Button btnExit;
+        private Label lblCurrPage;
     }
 }
