@@ -11,34 +11,75 @@ namespace Agency.Services
     public class RequestService
     {
         private AgencyDbContext context = new();
-        BuyerService buyerService = new BuyerService();
-        public bool Add(double LiveSpaceReq, double GeneralSpaceReq, int CountRoomsReq, 
-            int FloorReq, string TypePostrReq, int YearPostrReq, string? MetroReq, 
-            string? FurnitureReq, decimal MaxPriceReq, string LoginBuyer)
+        public List<Request> GetRequests()
         {
-            if (LiveSpaceReq > GeneralSpaceReq || CountRoomsReq <= 0 || FloorReq <= 0 || YearPostrReq <= 0 || MaxPriceReq <= 0)
+            return context.Requests.Include(request => request.KadastrNomNavigation).
+                Include(request => request.LoginBuyerNavigation).ToList();
+        }
+        public List<Request> GetRequests(Buyer buyer)
+        {
+            List<Request> requests = new List<Request>();
+            foreach (Request request in context.Requests.Include(request => request.KadastrNomNavigation.IdAdresNavigation).
+                Include(request => request.LoginBuyerNavigation).ToList())
             {
-                MessageBox.Show("Неверный ввод паспортных данных.");
+                if (request.LoginBuyer == buyer.LoginBuyer)
+                {
+                    requests.Add(request);
+                }
+            }
+            return requests;
+        }
+        public Request GetRequest(string KadastrNom)
+        {
+            return GetRequests().FirstOrDefault(request => request.KadastrNom == KadastrNom);
+        }
+        public bool Add(string KadastrNom, string LoginBuyer)
+        {
+            try
+            {
+                Request request = new Request()
+                {
+                    DataReq = DateTime.Now,
+                    KadastrNom = KadastrNom,
+                    LoginBuyer = LoginBuyer
+                };
+                context.Requests.Add(request);
+                context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка");
                 return false;
             }
-            Request request = new Request
+        }
+        public bool Remove(string KadastrNom)
+        {
+            try
             {
-                DataReq = DateTime.Now,
-                LiveSpaceReq = LiveSpaceReq,
-                GeneralSpaceReq = GeneralSpaceReq,
-                CountRoomsReq = CountRoomsReq,
-                FloorReq = FloorReq,
-                TypePostrReq = TypePostrReq,
-                YearPostrReq = YearPostrReq,
-                MetroReq = MetroReq,
-                FurnitureReq = FurnitureReq,
-                MaxPriceReq = MaxPriceReq,
-                LoginBuyer = LoginBuyer
-            };
-            context.Requests.Add(request);
-            buyerService.GetBuyer(LoginBuyer).Requests.Add(request);
-            context.SaveChanges();
-            return true;
+                context.Requests.Remove(GetRequest(KadastrNom));
+                context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка");
+                return false;
+            }
+        }
+        public bool Remove(Request request)
+        {
+            try
+            {
+                context.Requests.Remove(request);
+                context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка");
+                return false;
+            }
         }
     }
 }

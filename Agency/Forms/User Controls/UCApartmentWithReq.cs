@@ -6,23 +6,25 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Agency
+namespace Agency.Forms.User_Controls
 {
-    public partial class UCApartment : UserControl
+    public partial class UCApartmentWithReq : UserControl
     {
-        public Apartment apartment { get; }
-        public UCApartment(Apartment apartment)
+        private Apartment apartment;
+        private string LoginBuyer;
+        private RequestService reqService = new();
+        public UCApartmentWithReq(Apartment apartment, string LoginBuyer)
         {
+            this.LoginBuyer = LoginBuyer;
             this.apartment = apartment;
             InitializeComponent();
         }
 
-        private void UCApartment_Load(object sender, EventArgs e)
+        private void UCApartmentWithReq_Load(object sender, EventArgs e)
         {
             lblMainInfo.Text += apartment.CountRooms + "-к. квартира, " + apartment.GeneralSpace + " м2, " + apartment.NumFloor + " эт.";
             lblPrice.Text += String.Format("{0:N}", Convert.ToInt64(apartment.Price)) + " ₽";
@@ -34,32 +36,10 @@ namespace Agency
             lblFurniture.Text += apartment.Furniture;
         }
 
-        private void UCApartment_MouseEnter(object sender, EventArgs e)
+        private void btnAddReq_Click(object sender, EventArgs e)
         {
-        }
-
-        private void UCApartment_MouseLeave(object sender, EventArgs e)
-        {
-        }
-
-        private void lblLivespace_MouseEnter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblLivespace_MouseLeave(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_MouseEnter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_MouseLeave(object sender, EventArgs e)
-        {
-
+            reqService.Add(apartment.KadastrNom, LoginBuyer);
+            btnAddReq.Enabled = false;
         }
     }
 }

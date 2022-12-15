@@ -9,7 +9,7 @@ public partial class Specialist
 
     public string NomTelSpec { get; set; } = null!;
 
-    public int? CountDeals { get; set; }
+    public int CountDeals { get; set; }
 
     public int? SalarySpec { get; set; }
 

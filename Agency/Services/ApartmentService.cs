@@ -13,45 +13,58 @@ namespace Agency.Services
         private AgencyDbContext context = new();
         public List<Apartment> GetApartments()
         {
-            var apartments = context.Apartments.Include(apartments => apartments.LoginOwnerNavigation).Include(apartments => apartments.Deals).ToList();
+            var apartments = context.Apartments.Include(apartments => apartments.LoginOwnerNavigation).
+                Include(apartments => apartments.Deals).Include(apartments => apartments.IdAdresNavigation).
+                Include(apartments => apartments.Requests).ToList();
             return apartments;
         }
         public Apartment GetApartment(string KadastrNom)
         {
             return GetApartments().FirstOrDefault(apartment => apartment.KadastrNom == KadastrNom);
         }
-        public bool Add(string KadastrNom, string Adress, double LiveSpace, double GeneralSpace, int CountRooms,
-            int Floor, string TypePostr, int YearPostr, string? Metro,
-            string? Furniture, decimal Price, string LoginOwner)
+        public Apartment GetApartment(Request request)
+        {
+            return GetApartments().FirstOrDefault(apartment => apartment.Requests.Contains(request));
+        }
+        public bool Add(string KadastrNom, string Adress, double LiveSpace, 
+            double GeneralSpace, int CountRooms, int Floor, string TypePostr, 
+            int YearPostr, string Metro, string Furniture, decimal Price, string LoginOwner)
         {
             if (LiveSpace > GeneralSpace || CountRooms <= 0 || Floor <= 0 || YearPostr <= 0 || Price <= 0)
             {
                 MessageBox.Show("Неверный ввод данных.");
                 return false;
             }
+            Adre adres = new Adre()
+            {
+                Adress = Adress,
+                Metro = Metro
+            };
+            context.Adres.Add(adres);
+            context.SaveChanges();
+
             Apartment apartment = new Apartment
             {
 
                 KadastrNom = KadastrNom,
-                Adress = Adress,
+                IdAdres = adres.IdAdres,
                 LiveSpace = LiveSpace,
                 GeneralSpace = GeneralSpace,
                 CountRooms = CountRooms,
                 NumFloor = Floor,
                 TypeBuild = TypePostr,
                 YearBuild = YearPostr,
-                Metro = Metro,
                 Furniture = Furniture,
                 Price = Price,
                 LoginOwner = LoginOwner
-    };
+            };
             context.Apartments.Add(apartment);
             context.SaveChanges();
             return true;
         }
-        public bool isFree(Apartment apartment)
+        public bool IsAvailable(Apartment apartment)
         {
-            if (apartment.Deals.Count == 0)
+            if (apartment.Deals.Count == 0 && apartment.Requests.Count == 0)
             {
                 return true;
             }
@@ -62,19 +75,7 @@ namespace Agency.Services
             List<Apartment> apartments = new List<Apartment>();
             foreach (Apartment apartment in GetApartments())
             {
-                if (isFree(apartment))
-                {
-                    apartments.Add(apartment);
-                }
-            }
-            return apartments;
-        }
-        public List<Apartment> GetApartments(int minSpace, int maxSpace)
-        {
-            List<Apartment> apartments = new List<Apartment>();
-            foreach (Apartment apartment in GetFreeAparts())
-            {
-                if (apartment.GeneralSpace > minSpace && apartment.GeneralSpace < maxSpace)
+                if (IsAvailable(apartment))
                 {
                     apartments.Add(apartment);
                 }

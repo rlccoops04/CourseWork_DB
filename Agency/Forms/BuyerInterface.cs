@@ -107,7 +107,7 @@ namespace Agency
             ucAddRequest.Location = new Point(220, 83);
             this.Controls.Add(ucAddRequest);
             lblCurrPage.Text = btnAddRequest.Text;
-           // buyer = buyerService.GetBuyer(buyer.LoginBuyer);
+            //buyer = buyerService.GetBuyer(buyer.LoginBuyer);
         }
 
         private void btnMyDeals_Click(object sender, EventArgs e)

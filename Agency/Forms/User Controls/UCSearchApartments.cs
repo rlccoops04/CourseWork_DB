@@ -49,7 +49,6 @@ namespace Agency
                 i += 240;
             }
         }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
             HideAparts();
@@ -169,7 +168,7 @@ namespace Agency
             {
                 foreach (Apartment apartment in apartmentServ.GetFreeAparts())
                 {
-                    if (apartment.Metro != "рядом")
+                    if (apartment.IdAdresNavigation.Metro != "рядом")
                     {
                         searchedApartments.Remove(apartment);
                     }

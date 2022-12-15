@@ -2,7 +2,7 @@ namespace Agency
 {
     public partial class Authorization : Form
     {
-        //public AgencyDbContext _context { get; set; }
+        public AgencyDbContext _context { get; set; }
         public Authorization()
         {
             InitializeComponent();

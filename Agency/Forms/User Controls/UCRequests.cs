@@ -1,4 +1,6 @@
 ﻿using Agency.Models;
+using Agency.Services;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,30 +15,25 @@ namespace Agency.Forms.User_Controls
 {
     public partial class UCRequests : UserControl
     {
-        private Buyer currBuyer;
-        private AgencyDbContext context = new();
+        private Buyer buyer;
+        private RequestService reqService = new();
         public UCRequests(Buyer buyer)
         {
-            currBuyer = buyer;
+            this.buyer = buyer;
             InitializeComponent();
         }
 
         private void UCRequests_Load(object sender, EventArgs e)
         {
             int i = 10;
-            int count = 0;
-            foreach (Request request in context.Requests.ToList())
+            foreach (Request request in reqService.GetRequests(buyer))
             {
-                if (request.LoginBuyer == currBuyer.LoginBuyer)
-                {
-                    UCRequest ucRequest = new UCRequest(request);
-                    ucRequest.Location = new Point(0, i);
-                    i += 200;
-                    panelReqs.Controls.Add(ucRequest);
-                    count++;
-                }
+                UCRequest ucRequest = new UCRequest(request);
+                ucRequest.Location = new Point(0, i);
+                i += 280;
+                panelReqs.Controls.Add(ucRequest);
             }
-            lblCountReqs.Text += count;
+            lblCountReqs.Text += reqService.GetRequests(buyer).Count();
         }
     }
 }

@@ -14,47 +14,31 @@ namespace Agency.Forms.User_Controls
 {
     public partial class UCAddRequest : UserControl
     {
-        private RequestService reqService;
         private Buyer currBuyer;
+        private ApartmentService apartmentServ = new();
+        private UCApartmentWithReq ucApartment;
         public UCAddRequest(Buyer buyer)
         {
-            reqService = new();
             currBuyer = buyer;
             InitializeComponent();
         }
 
         private void UCAddRequest_Load(object sender, EventArgs e)
         {
-
+            int i = 0;
+            foreach (Apartment apartment in apartmentServ.GetFreeAparts())
+            {
+                ucApartment = new(apartment, currBuyer.LoginBuyer);
+                ucApartment.Location = new Point(0, i);
+                pnlAparts.Controls.Add(ucApartment);
+                i += 240;
+            }
+            lblfound.Text += apartmentServ.GetFreeAparts().Count.ToString();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            string metro, furn;
-            if(cbMetro.Checked) { metro = "рядом"; } else { metro = "не рядом"; };
-            if(cbFurniture.Checked) { furn = "есть"; } else { furn = "нет"; }
-            try
-            {
-                var result = reqService.Add(Convert.ToDouble(tbSpace1.Text), Convert.ToDouble(tbSpace2.Text), Convert.ToInt32(tbRoomsMax.Text),
-                    Convert.ToInt32(tbFloorMax.Text), cbType.Text, Convert.ToInt32(tbYear.Text), metro, furn,
-                    Convert.ToInt64(tbPriceMax.Text), currBuyer.LoginBuyer);
-                if (result)
-                {
-                    tbSpace1.Text = "";
-                    tbSpace2.Text = "";
-                    tbRoomsMax.Text = "";
-                    tbFloorMax.Text = "";
-                    cbType.Text = "";
-                    tbYear.Text = "";
-                    tbPriceMax.Text = "";
-                    cbMetro.Checked = false;
-                    cbFurniture.Checked = false;
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Ошибка ввода", "Ошибка");
-            }
+
         }
     }
 }

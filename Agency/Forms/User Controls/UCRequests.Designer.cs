@@ -37,16 +37,16 @@
             this.panelReqs.AutoScroll = true;
             this.panelReqs.Location = new System.Drawing.Point(0, 55);
             this.panelReqs.Name = "panelReqs";
-            this.panelReqs.Size = new System.Drawing.Size(747, 448);
+            this.panelReqs.Size = new System.Drawing.Size(750, 448);
             this.panelReqs.TabIndex = 0;
             // 
             // lblCountReqs
             // 
             this.lblCountReqs.AutoSize = true;
-            this.lblCountReqs.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblCountReqs.Location = new System.Drawing.Point(17, 13);
+            this.lblCountReqs.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCountReqs.Location = new System.Drawing.Point(0, 0);
             this.lblCountReqs.Name = "lblCountReqs";
-            this.lblCountReqs.Size = new System.Drawing.Size(169, 28);
+            this.lblCountReqs.Size = new System.Drawing.Size(204, 32);
             this.lblCountReqs.TabIndex = 0;
             this.lblCountReqs.Text = "Найдено заявок: ";
             // 

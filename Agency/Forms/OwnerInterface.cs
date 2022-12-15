@@ -21,6 +21,10 @@ namespace Agency.Forms
         private UCSearchApartments ucSearchApartments;
         private UCMyAparts ucMyAparts;
         private UCAddApartment ucAddApartment;
+        private UCRequests ucRequests;
+        private UCAddRequest ucAddRequest;
+        private UCMyDeals ucDeals;
+
         public OwnerInterface(Owner owner)
         {
             this.owner = owner;
@@ -52,18 +56,18 @@ namespace Agency.Forms
             {
                 ucAddApartment.Hide();
             }
-            /*            if (this.Controls.Contains(ucRequests))
-                        {
-                            ucRequests.Hide();
-                        }
-                        if (this.Controls.Contains(ucAddRequest))
-                        {
-                            ucAddRequest.Hide();
-                        }
-                        if (this.Controls.Contains(ucDeals))
-                        {
-                            ucDeals.Hide();
-                        }*/
+            if (this.Controls.Contains(ucRequests))
+            {
+                ucRequests.Hide();
+            }
+            if (this.Controls.Contains(ucAddRequest))
+            {
+                ucAddRequest.Hide();
+            }
+            if (this.Controls.Contains(ucDeals))
+            {
+                ucDeals.Hide();
+            }
         }
 
         private void btnProfile_Click(object sender, EventArgs e)

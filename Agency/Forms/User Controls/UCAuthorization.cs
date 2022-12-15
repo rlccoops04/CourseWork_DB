@@ -26,18 +26,18 @@ namespace Agency
         {
             this.Hide();
             this.Parent.Hide();
-            OwnerInterface ownerInterface = new(ownerServ.GetOwner("david111"));
-            ownerInterface.Show();
-/*            if (buyerServ.IsExist(tbLogin.Text, tbPassword.Text))
-            {
-                this.Hide();
-                this.Parent.Hide();
-                BuyerInterface buyerInterface = new(buyerServ.GetBuyer(tbLogin.Text));
-                buyerInterface.Show();
-                
-                return;
-            }
-            MessageBox.Show("Неверный логин или пароль", "Ошибка");*/
+            BuyerInterface buyerInterface = new(buyerServ.GetBuyer("test123"));
+            buyerInterface.Show();
+            /*            if (buyerServ.IsExist(tbLogin.Text, tbPassword.Text))
+                        {
+                            this.Hide();
+                            this.Parent.Hide();
+                            BuyerInterface buyerInterface = new(buyerServ.GetBuyer(tbLogin.Text));
+                            buyerInterface.Show();
+
+                            return;
+                        }*/
+            MessageBox.Show("Неверный логин или пароль", "Ошибка");
 
         }
 

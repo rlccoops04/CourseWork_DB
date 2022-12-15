@@ -1,4 +1,5 @@
 ﻿using Agency.Models;
+using Agency.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,9 @@ namespace Agency
     public partial class UCRequest : UserControl
     {
         private Request request;
+        private UCApartment ucApartment;
+        private ApartmentService apartService = new();
+        private RequestService reqService = new();
         public UCRequest(Request request)
         {
             this.request = request;
@@ -24,20 +28,15 @@ namespace Agency
         {
             lblDate.Text = request.DataReq.ToString();
             lblReqID.Text += request.IdReq.ToString();
-            lblCountRooms.Text += request.CountRoomsReq.ToString();
-            lblFloor.Text += request.FloorReq.ToString();
-            lblLiveSpace.Text += request.LiveSpaceReq.ToString();
-            lblYearBld.Text += request.YearPostrReq.ToString();
-            lblTypeBld.Text += request.TypePostrReq.ToString();
-            lblMaxPrice.Text += request.MaxPriceReq.ToString();
-            if (request.MetroReq == "рядом")
-            {
-                cbMetro.Checked = true;
-            }
-            if (request.FurnitureReq == "есть")
-            {
-                cbFurniture.Checked = true;
-            }
+            ucApartment = new(request.KadastrNomNavigation);
+            ucApartment.Location = new Point(0, 50);
+            this.Controls.Add(ucApartment);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            reqService.Remove(request);
+            button1.Enabled = false;
         }
     }
 }
