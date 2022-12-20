@@ -15,22 +15,22 @@ namespace Agency
 {
     public partial class BuyerInterface : Form
     {
-        private Buyer buyer;
+        private int id_user;
         private UCProfile ucProfile;
         private UCKatalog ucKatalog;
         private UCSearchApartments ucSearchApartments;
         private UCRequests ucRequests;
         private UCAddRequest ucAddRequest;
         private UCMyDeals ucDeals;
-        public BuyerInterface(Buyer buyer)
+        public BuyerInterface(int id_user)
         {
-            this.buyer = buyer;
+            this.id_user = id_user;
             InitializeComponent();
         }
 
         private void BuyerInterface_Load(object sender, EventArgs e)
         {
-            lblCurrUserName.Text += buyer.FioBuyer;
+           // lblCurrUserName.Text += buyer.FioBuyer;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -67,8 +67,8 @@ namespace Agency
         private void btnProfile_Click(object sender, EventArgs e)
         {
             HideAll();
-            ucProfile = new(buyer.LoginBuyer, "Buyer");
-            ucProfile.Location = new Point(350, 177);
+            ucProfile = new(id_user, "Buyer");
+            ucProfile.Location = new Point(220, 177);
             this.Controls.Add(ucProfile);
             lblCurrPage.Text = btnProfile.Text;
         }
@@ -94,7 +94,7 @@ namespace Agency
         private void btnRequest_Click(object sender, EventArgs e)
         {
             HideAll();
-            ucRequests = new(buyer);
+            ucRequests = new(id_user);
             ucRequests.Location = new Point(220, 83);
             this.Controls.Add(ucRequests);
             lblCurrPage.Text = btnRequest.Text;
@@ -103,7 +103,7 @@ namespace Agency
         private void btnAddRequest_Click(object sender, EventArgs e)
         {
             HideAll();
-            ucAddRequest = new(buyer);
+            ucAddRequest = new(id_user);
             ucAddRequest.Location = new Point(220, 83);
             this.Controls.Add(ucAddRequest);
             lblCurrPage.Text = btnAddRequest.Text;
@@ -113,7 +113,7 @@ namespace Agency
         private void btnMyDeals_Click(object sender, EventArgs e)
         {
             HideAll();
-            ucDeals = new(buyer);
+            ucDeals = new(id_user);
             ucDeals.Location = new Point(220, 83);
             this.Controls.Add(ucDeals);
             lblCurrPage.Text = btnMyDeals.Text;

@@ -1,3 +1,5 @@
+using Agency.Models;
+
 namespace Agency
 {
     public partial class Authorization : Form

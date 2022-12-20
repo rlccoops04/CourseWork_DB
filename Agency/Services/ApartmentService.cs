@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,7 +14,7 @@ namespace Agency.Services
         private AgencyDbContext context = new();
         public List<Apartment> GetApartments()
         {
-            var apartments = context.Apartments.Include(apartments => apartments.LoginOwnerNavigation).
+            var apartments = context.Apartments.Include(apartments => apartments.IdOwnerNavigation).
                 Include(apartments => apartments.Deals).Include(apartments => apartments.IdAdresNavigation).
                 Include(apartments => apartments.Requests).ToList();
             return apartments;
@@ -28,7 +29,7 @@ namespace Agency.Services
         }
         public bool Add(string KadastrNom, string Adress, double LiveSpace, 
             double GeneralSpace, int CountRooms, int Floor, string TypePostr, 
-            int YearPostr, string Metro, string Furniture, decimal Price, string LoginOwner)
+            int YearPostr, string Metro, string Furniture, decimal Price, int ID_owner)
         {
             if (LiveSpace > GeneralSpace || CountRooms <= 0 || Floor <= 0 || YearPostr <= 0 || Price <= 0)
             {
@@ -56,7 +57,7 @@ namespace Agency.Services
                 YearBuild = YearPostr,
                 Furniture = Furniture,
                 Price = Price,
-                LoginOwner = LoginOwner
+                IdOwner = ID_owner
             };
             context.Apartments.Add(apartment);
             context.SaveChanges();
@@ -81,6 +82,16 @@ namespace Agency.Services
                 }
             }
             return apartments;
+        }
+        public bool Remove(Apartment apartment)
+        {
+            if (apartment.Requests.Count == 0 && apartment.Deals.Count == 0)
+            {
+                context.Apartments.Remove(apartment);
+                context.SaveChanges();
+                return true;
+            }
+            return false;
         }
     }
 }

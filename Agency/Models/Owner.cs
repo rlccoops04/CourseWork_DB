@@ -15,5 +15,7 @@ public partial class Owner
 
     public string PasswordOwner { get; set; } = null!;
 
+    public int IdOwner { get; set; }
+
     public virtual ICollection<Apartment> Apartments { get; } = new List<Apartment>();
 }

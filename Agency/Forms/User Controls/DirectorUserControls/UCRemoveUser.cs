@@ -1,0 +1,82 @@
+﻿using Agency.Models;
+using Agency.Services;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Agency.Forms.User_Controls.DirectorUserControls
+{
+    public partial class UCRemoveUser : UserControl
+    {
+        private BuyerService buyerServ = new();
+        private OwnerService ownerServ = new();
+        private SpecialistService specServ = new();
+        public UCRemoveUser()
+        {
+            InitializeComponent();
+        }
+
+        private void cbUser_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnRemove.Enabled = cbUser.SelectedIndex != -1;
+        }
+
+        private void cbRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbUser.Items.Clear();
+            if (cbRole.Text == "Покупатель")
+            {
+                var buyers = buyerServ.GetBuyers();
+                foreach (Buyer buyer in buyers)
+                {
+                    cbUser.Items.Add(buyer.FioBuyer + "(id: " + buyer.IdBuyer + ")");
+                }
+            }
+            else if (cbRole.Text == "Продавец")
+            {
+                var owners = ownerServ.GetOwners();
+                foreach (Owner owner in owners)
+                {
+                    cbUser.Items.Add(owner.FioOwner + "(id: " + owner.IdOwner + ")");
+                }
+            }
+            else if (cbRole.Text == "Специалист")
+            {
+                var specialists = specServ.GetSpecs();
+                foreach (Specialist specialist in specialists)
+                {
+                    cbUser.Items.Add(specialist.FioSpec + "(id: " + specialist.IdSpec + ")");
+                }
+            }
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            bool result = false;
+            if (cbRole.Text == "Покупатель")
+            {
+                result = buyerServ.Remove(Convert.ToInt32(cbUser.Text[cbUser.Text.Length - 2]));
+            }
+            else if (cbRole.Text == "Продавец")
+            {
+                result = ownerServ.Remove(Convert.ToInt32(cbUser.Text[cbUser.Text.Length - 2]));
+            }
+            else if (cbRole.Text == "Специалист")
+            {
+                result = specServ.Remove((int)(cbUser.Text[cbUser.Text.Length - 2]));
+            }
+            if (result)
+            {
+                MessageBox.Show("Пользователь успешно удален");
+            }
+            cbRole.Text = "";
+            cbUser.Items.Clear();
+        }
+    }
+}

@@ -15,7 +15,7 @@ namespace Agency.Forms
 {
     public partial class OwnerInterface : Form
     {
-        private Owner owner;
+        private int id_user;
         private UCProfile ucProfile;
         private UCKatalog ucKatalog;
         private UCSearchApartments ucSearchApartments;
@@ -25,14 +25,14 @@ namespace Agency.Forms
         private UCAddRequest ucAddRequest;
         private UCMyDeals ucDeals;
 
-        public OwnerInterface(Owner owner)
+        public OwnerInterface(int id_user)
         {
-            this.owner = owner;
+            this.id_user = id_user;
             InitializeComponent();
         }
         private void OwnerInterface_Load(object sender, EventArgs e)
         {
-            lblCurrUserName.Text += owner.FioOwner;
+            //lblCurrUserName.Text += owner.FioOwner;
         }
         private void HideAll()
         {
@@ -73,8 +73,8 @@ namespace Agency.Forms
         private void btnProfile_Click(object sender, EventArgs e)
         {
             HideAll();
-            ucProfile = new(owner.LoginOwner, "Owner");
-            ucProfile.Location = new Point(350, 177);
+            ucProfile = new(id_user, "Owner");
+            ucProfile.Location = new Point(220, 177);
             this.Controls.Add(ucProfile);
             lblCurrPage.Text = btnProfile.Text;
         }
@@ -105,7 +105,7 @@ namespace Agency.Forms
         private void btnMyAparts_Click(object sender, EventArgs e)
         {
             HideAll();
-            ucMyAparts = new(owner);
+            ucMyAparts = new(id_user);
             ucMyAparts.Location = new Point(220, 83);
             this.Controls.Add(ucMyAparts);
             lblCurrPage.Text = btnMyAparts.Text;
@@ -114,7 +114,7 @@ namespace Agency.Forms
         private void btnAddApartment_Click(object sender, EventArgs e)
         {
             HideAll();
-            ucAddApartment = new(owner);
+            ucAddApartment = new(id_user);
             ucAddApartment.Location = new Point(220, 83);
             this.Controls.Add(ucAddApartment);
             lblCurrPage.Text = btnAddApartment.Text;

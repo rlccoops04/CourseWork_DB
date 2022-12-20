@@ -13,16 +13,27 @@ namespace Agency.Services
         private AgencyDbContext context = new();
         public List<Request> GetRequests()
         {
-            return context.Requests.Include(request => request.KadastrNomNavigation).
-                Include(request => request.LoginBuyerNavigation).ToList();
+            return context.Requests.Include(request => request.KadastrNomNavigation.IdAdresNavigation).
+                Include(request => request.IdBuyerNavigation).ToList();
         }
         public List<Request> GetRequests(Buyer buyer)
         {
             List<Request> requests = new List<Request>();
-            foreach (Request request in context.Requests.Include(request => request.KadastrNomNavigation.IdAdresNavigation).
-                Include(request => request.LoginBuyerNavigation).ToList())
+            foreach (Request request in GetRequests())
             {
-                if (request.LoginBuyer == buyer.LoginBuyer)
+                if (request.IdBuyerNavigation.LoginBuyer == buyer.LoginBuyer)
+                {
+                    requests.Add(request);
+                }
+            }
+            return requests;
+        }
+        public List<Request> GetRequests(int id_user)
+        {
+            List<Request> requests = new List<Request>();
+            foreach (Request request in GetRequests())
+            {
+                if (request.IdBuyerNavigation.IdBuyer == id_user)
                 {
                     requests.Add(request);
                 }
@@ -33,7 +44,7 @@ namespace Agency.Services
         {
             return GetRequests().FirstOrDefault(request => request.KadastrNom == KadastrNom);
         }
-        public bool Add(string KadastrNom, string LoginBuyer)
+        public bool Add(string KadastrNom, int IdBuyer)
         {
             try
             {
@@ -41,10 +52,11 @@ namespace Agency.Services
                 {
                     DataReq = DateTime.Now,
                     KadastrNom = KadastrNom,
-                    LoginBuyer = LoginBuyer
+                    IdBuyer = IdBuyer
                 };
                 context.Requests.Add(request);
                 context.SaveChanges();
+                MessageBox.Show("Успешно");
                 return true;
             }
             catch

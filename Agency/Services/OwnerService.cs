@@ -20,6 +20,10 @@ namespace Agency.Services
         {
             return GetOwners().FirstOrDefault(owner => owner.LoginOwner == Login);
         }
+        public Owner GetOwner(int id)
+        {
+            return GetOwners().FirstOrDefault(owner => owner.IdOwner == id);
+        }
         public bool IsExist(string Login, string Password)
         {
             return GetOwners().Any(x => x.LoginOwner == Login && x.PasswordOwner == Password);
@@ -42,6 +46,46 @@ namespace Agency.Services
             context.Owners.Add(owner);
             context.SaveChanges();
             return true;
+        }
+        public bool Remove(int id)
+        {
+            var owner = GetOwner(id);
+            if (owner == null)
+            {
+                return false;
+            }
+            context.Owners.Remove(owner);
+            context.SaveChanges();
+            return true;
+        }
+        public bool Change(int id, string newValue, string option)
+        {
+            var Owner = GetOwner(id);
+            if (option == "ФИО")
+            {
+                Owner.FioOwner = newValue;
+            }
+            if (option == "Номер телефона")
+            {
+                Owner.NomTelOwner = newValue;
+            }
+            if (option == "Логин")
+            {
+                Owner.LoginOwner = newValue;
+            }
+            if (option == "Пароль")
+            {
+                Owner.PasswordOwner = newValue;
+            }
+            try
+            {
+                context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

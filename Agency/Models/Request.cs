@@ -11,9 +11,9 @@ public partial class Request
 
     public string KadastrNom { get; set; } = null!;
 
-    public string LoginBuyer { get; set; } = null!;
+    public int IdBuyer { get; set; }
+
+    public virtual Buyer IdBuyerNavigation { get; set; } = null!;
 
     public virtual Apartment KadastrNomNavigation { get; set; } = null!;
-
-    public virtual Buyer LoginBuyerNavigation { get; set; } = null!;
 }

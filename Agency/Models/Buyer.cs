@@ -15,6 +15,8 @@ public partial class Buyer
 
     public string PasswordBuyer { get; set; } = null!;
 
+    public int IdBuyer { get; set; }
+
     public virtual ICollection<Deal> Deals { get; } = new List<Deal>();
 
     public virtual ICollection<Request> Requests { get; } = new List<Request>();

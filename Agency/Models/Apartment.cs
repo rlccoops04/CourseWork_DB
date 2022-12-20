@@ -25,13 +25,13 @@ public partial class Apartment
 
     public decimal Price { get; set; }
 
-    public string LoginOwner { get; set; } = null!;
+    public int IdOwner { get; set; }
 
     public virtual ICollection<Deal> Deals { get; } = new List<Deal>();
 
     public virtual Adre IdAdresNavigation { get; set; } = null!;
 
-    public virtual Owner LoginOwnerNavigation { get; set; } = null!;
+    public virtual Owner IdOwnerNavigation { get; set; } = null!;
 
     public virtual ICollection<Request> Requests { get; } = new List<Request>();
 }

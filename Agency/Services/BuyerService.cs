@@ -1,7 +1,10 @@
 ﻿using Agency.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic.ApplicationServices;
+using Microsoft.VisualBasic.Logging;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -20,6 +23,10 @@ namespace Agency.Services
         public Buyer GetBuyer(string Login)
         {
             return GetBuyers().FirstOrDefault(buyer => buyer.LoginBuyer == Login);
+        }
+        public Buyer GetBuyer(int id)
+        {
+            return GetBuyers().FirstOrDefault(buyer => buyer.IdBuyer == id);
         }
         public bool IsExist(string Login, string Password)
         {
@@ -44,10 +51,36 @@ namespace Agency.Services
             context.SaveChanges();
             return true;
         }
-        public bool ChangeFio(string Login, string newFio)
+        public bool Remove(int id)
         {
-            var Buyer = GetBuyer(Login);
-            Buyer.FioBuyer = newFio;
+            var buyer = GetBuyer(id);
+            if (buyer == null)
+            {
+                return false;
+            }
+            context.Buyers.Remove(buyer);
+            context.SaveChanges();
+            return true;
+        }
+        public bool Change(int id, string newValue, string option)
+        {
+            var Buyer = GetBuyer(id);
+            if (option == "ФИО")
+            {
+                Buyer.FioBuyer = newValue;
+            }
+            if (option == "Номер телефона")
+            {
+                Buyer.NomTelBuyer = newValue;
+            }
+            if (option == "Логин")
+            {
+                Buyer.LoginBuyer = newValue;
+            }
+            if (option == "Пароль")
+            {
+                Buyer.PasswordBuyer = newValue;
+            }
             try
             {
                 context.SaveChanges();

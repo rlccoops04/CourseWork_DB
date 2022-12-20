@@ -9,15 +9,15 @@ public partial class Deal
 
     public DateTime DataDeal { get; set; }
 
-    public string LoginSpec { get; set; } = null!;
-
     public string? KadastrNom { get; set; }
 
-    public string LoginBuyer { get; set; } = null!;
+    public int IdBuyer { get; set; }
+
+    public int IdSpec { get; set; }
+
+    public virtual Buyer IdBuyerNavigation { get; set; } = null!;
+
+    public virtual Specialist IdSpecNavigation { get; set; } = null!;
 
     public virtual Apartment? KadastrNomNavigation { get; set; }
-
-    public virtual Buyer LoginBuyerNavigation { get; set; } = null!;
-
-    public virtual Specialist LoginSpecNavigation { get; set; } = null!;
 }

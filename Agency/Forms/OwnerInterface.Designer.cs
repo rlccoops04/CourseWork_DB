@@ -45,7 +45,7 @@
             // 
             this.lblCurrPage.AutoSize = true;
             this.lblCurrPage.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblCurrPage.Location = new System.Drawing.Point(216, 12);
+            this.lblCurrPage.Location = new System.Drawing.Point(212, 13);
             this.lblCurrPage.Name = "lblCurrPage";
             this.lblCurrPage.Size = new System.Drawing.Size(0, 35);
             this.lblCurrPage.TabIndex = 19;
@@ -117,19 +117,20 @@
             this.lblCurrUserName.AutoSize = true;
             this.lblCurrUserName.BackColor = System.Drawing.Color.Transparent;
             this.lblCurrUserName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblCurrUserName.Location = new System.Drawing.Point(12, 118);
+            this.lblCurrUserName.Location = new System.Drawing.Point(53, 124);
             this.lblCurrUserName.Name = "lblCurrUserName";
-            this.lblCurrUserName.Size = new System.Drawing.Size(0, 23);
+            this.lblCurrUserName.Size = new System.Drawing.Size(88, 23);
             this.lblCurrUserName.TabIndex = 11;
+            this.lblCurrUserName.Text = "Продавец";
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(36, 13);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(105, 103);
+            this.pictureBox1.Size = new System.Drawing.Size(122, 108);
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
@@ -137,6 +138,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1012, 609);
             this.Controls.Add(this.lblCurrPage);
