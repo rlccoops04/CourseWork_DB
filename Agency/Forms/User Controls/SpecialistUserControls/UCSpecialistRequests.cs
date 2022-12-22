@@ -24,11 +24,11 @@ namespace Agency.Forms.User_Controls
 
         private void UCSpecialistRequests_Load(object sender, EventArgs e)
         {
-            int i = 10;
+            int i = 0;
             foreach (Request request in reqService.GetRequests())
             {
                 UCSpecialistRequest ucRequest = new UCSpecialistRequest(request, id_spec);
-                ucRequest.Location = new Point(0, i);
+                ucRequest.Location = new Point(10, i);
                 i += 280;
                 panelReqs.Controls.Add(ucRequest);
             }

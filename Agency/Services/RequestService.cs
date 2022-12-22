@@ -56,7 +56,6 @@ namespace Agency.Services
                 };
                 context.Requests.Add(request);
                 context.SaveChanges();
-                MessageBox.Show("Успешно");
                 return true;
             }
             catch

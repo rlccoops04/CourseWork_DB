@@ -30,7 +30,10 @@ namespace Agency
 
         private void BuyerInterface_Load(object sender, EventArgs e)
         {
-           // lblCurrUserName.Text += buyer.FioBuyer;
+            HideAll();
+            ucSearchApartments = new();
+            ucSearchApartments.Location = new Point(0, 43);
+            this.Controls.Add(ucSearchApartments);
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -64,59 +67,49 @@ namespace Agency
                 ucDeals.Hide();
             }
         }
-        private void btnProfile_Click(object sender, EventArgs e)
+        private void lblProfile_Click(object sender, EventArgs e)
         {
             HideAll();
             ucProfile = new(id_user, "Buyer");
-            ucProfile.Location = new Point(220, 177);
+            ucProfile.Location = new Point(0, 43);
             this.Controls.Add(ucProfile);
-            lblCurrPage.Text = btnProfile.Text;
         }
 
-        private void btnKatalog_Click(object sender, EventArgs e)
-        {
-            HideAll();
-            ucKatalog = new();
-            ucKatalog.Location = new Point(220, 83);
-            this.Controls.Add(ucKatalog);
-            lblCurrPage.Text = btnKatalog.Text;
-        }
-
-        private void btnSearchAparts_Click(object sender, EventArgs e)
+        private void lblAparts_Click(object sender, EventArgs e)
         {
             HideAll();
             ucSearchApartments = new();
-            ucSearchApartments.Location = new Point(220, 83);
+            ucSearchApartments.Location = new Point(0, 43);
             this.Controls.Add(ucSearchApartments);
-            lblCurrPage.Text = btnSearchAparts.Text;
         }
 
-        private void btnRequest_Click(object sender, EventArgs e)
+        private void lblMyReqs_Click(object sender, EventArgs e)
         {
             HideAll();
             ucRequests = new(id_user);
-            ucRequests.Location = new Point(220, 83);
+            ucRequests.Location = new Point(0, 43);
             this.Controls.Add(ucRequests);
-            lblCurrPage.Text = btnRequest.Text;
         }
 
-        private void btnAddRequest_Click(object sender, EventArgs e)
+        private void lblAddReq_Click(object sender, EventArgs e)
         {
             HideAll();
             ucAddRequest = new(id_user);
-            ucAddRequest.Location = new Point(220, 83);
+            ucAddRequest.Location = new Point(0, 43);
             this.Controls.Add(ucAddRequest);
-            lblCurrPage.Text = btnAddRequest.Text;
-            //buyer = buyerService.GetBuyer(buyer.LoginBuyer);
         }
 
-        private void btnMyDeals_Click(object sender, EventArgs e)
+        private void lblMyDeals_Click(object sender, EventArgs e)
         {
             HideAll();
             ucDeals = new(id_user);
-            ucDeals.Location = new Point(220, 83);
+            ucDeals.Location = new Point(0, 43);
             this.Controls.Add(ucDeals);
-            lblCurrPage.Text = btnMyDeals.Text;
+        }
+
+        private void lblExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

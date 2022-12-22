@@ -55,7 +55,6 @@ namespace Agency.Services
                 };
                 context.Deals.Add(deal);
                 context.SaveChanges();
-                MessageBox.Show("Успешно");
                 return true;
             }
             catch

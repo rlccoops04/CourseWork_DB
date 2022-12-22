@@ -17,6 +17,7 @@ namespace Agency
         private UCProfile ucProfile;
         private UCSpecialistDeals ucDeals;
         private UCSpecialistRequests ucReqs;
+        private UCSearchApartments ucSearchAparts;
         private int id_spec;
         public SpecialistInterface(int id_spec)
         {
@@ -37,40 +38,50 @@ namespace Agency
             {
                 ucReqs.Hide();
             }
+            if (this.Controls.Contains(ucSearchAparts))
+            {
+                ucSearchAparts.Hide();
+            }
         }
-
-        private void btnProfile_Click(object sender, EventArgs e)
+        private void lblMyProfile_Click(object sender, EventArgs e)
         {
             HideAll();
             ucProfile = new(id_spec, "Spec");
-            ucProfile.Location = new Point(155, 140);
+            ucProfile.Location = new Point(0, 43);
             this.Controls.Add(ucProfile);
         }
-
-        private void btnMyDeals_Click(object sender, EventArgs e)
+        private void lblMyDeals_Click(object sender, EventArgs e)
         {
             HideAll();
             ucDeals = new(id_spec);
-            ucDeals.Location = new Point(155, 15);
+            ucDeals.Location = new Point(0, 43);
             this.Controls.Add(ucDeals);
         }
-
-        private void btnReqs_Click(object sender, EventArgs e)
+        private void lblReqs_Click(object sender, EventArgs e)
         {
             HideAll();
             ucReqs = new(id_spec);
-            ucReqs.Location = new Point(155, 15);
+            ucReqs.Location = new Point(0, 43);
             this.Controls.Add(ucReqs);
         }
-
-        private void btnExit_Click(object sender, EventArgs e)
+        private void lblAparts_Click(object sender, EventArgs e)
+        {
+            HideAll();
+            ucSearchAparts = new();
+            ucSearchAparts.Location = new Point(0, 43);
+            this.Controls.Add(ucSearchAparts);
+        }
+        private void lblExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
         private void SpecialistInterface_Load(object sender, EventArgs e)
         {
-
+            HideAll();
+            ucSearchAparts = new();
+            ucSearchAparts.Location = new Point(0, 43);
+            this.Controls.Add(ucSearchAparts);
         }
     }
 }

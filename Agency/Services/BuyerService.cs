@@ -56,6 +56,12 @@ namespace Agency.Services
             var buyer = GetBuyer(id);
             if (buyer == null)
             {
+                MessageBox.Show("Покупатель не найден.");
+                return false;
+            }
+            if (buyer.Deals.Count != 0 || buyer.Requests.Count != 0)
+            {
+                MessageBox.Show("У покупателя найдены сделки или запросы. Удаление невозможно.");
                 return false;
             }
             context.Buyers.Remove(buyer);

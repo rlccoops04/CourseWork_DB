@@ -32,7 +32,10 @@ namespace Agency.Forms
         }
         private void OwnerInterface_Load(object sender, EventArgs e)
         {
-            //lblCurrUserName.Text += owner.FioOwner;
+            HideAll();
+            ucSearchApartments = new();
+            ucSearchApartments.Location = new Point(0, 43);
+            this.Controls.Add(ucSearchApartments);
         }
         private void HideAll()
         {
@@ -69,55 +72,41 @@ namespace Agency.Forms
                 ucDeals.Hide();
             }
         }
-
-        private void btnProfile_Click(object sender, EventArgs e)
-        {
-            HideAll();
-            ucProfile = new(id_user, "Owner");
-            ucProfile.Location = new Point(220, 177);
-            this.Controls.Add(ucProfile);
-            lblCurrPage.Text = btnProfile.Text;
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void btnKatalog_Click(object sender, EventArgs e)
-        {
-            HideAll();
-            ucKatalog = new();
-            ucKatalog.Location = new Point(220, 83);
-            this.Controls.Add(ucKatalog);
-            lblCurrPage.Text = btnKatalog.Text;
-        }
-
-        private void btnSearchAparts_Click(object sender, EventArgs e)
+        private void lblAparts_Click(object sender, EventArgs e)
         {
             HideAll();
             ucSearchApartments = new();
-            ucSearchApartments.Location = new Point(220, 83);
+            ucSearchApartments.Location = new Point(0, 43);
             this.Controls.Add(ucSearchApartments);
-            lblCurrPage.Text = btnSearchAparts.Text;
         }
 
-        private void btnMyAparts_Click(object sender, EventArgs e)
+        private void lblMyAparts_Click(object sender, EventArgs e)
         {
             HideAll();
             ucMyAparts = new(id_user);
-            ucMyAparts.Location = new Point(220, 83);
+            ucMyAparts.Location = new Point(0, 43);
             this.Controls.Add(ucMyAparts);
-            lblCurrPage.Text = btnMyAparts.Text;
         }
 
-        private void btnAddApartment_Click(object sender, EventArgs e)
+        private void lblAddApart_Click(object sender, EventArgs e)
         {
             HideAll();
             ucAddApartment = new(id_user);
-            ucAddApartment.Location = new Point(220, 83);
+            ucAddApartment.Location = new Point(0, 43);
             this.Controls.Add(ucAddApartment);
-            lblCurrPage.Text = btnAddApartment.Text;
+        }
+
+        private void lblMyProfile_Click(object sender, EventArgs e)
+        {
+            HideAll();
+            ucProfile = new(id_user, "Owner");
+            ucProfile.Location = new Point(0, 43);
+            this.Controls.Add(ucProfile);
+        }
+
+        private void lblExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

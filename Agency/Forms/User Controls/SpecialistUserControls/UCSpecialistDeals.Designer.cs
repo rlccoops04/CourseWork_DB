@@ -35,20 +35,20 @@
             // panel
             // 
             this.panel.AutoScroll = true;
-            this.panel.Location = new System.Drawing.Point(0, 35);
+            this.panel.Location = new System.Drawing.Point(3, 53);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(750, 442);
+            this.panel.Size = new System.Drawing.Size(910, 483);
             this.panel.TabIndex = 5;
             // 
             // lblfound
             // 
             this.lblfound.AutoSize = true;
             this.lblfound.BackColor = System.Drawing.Color.Transparent;
-            this.lblfound.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblfound.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblfound.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblfound.Location = new System.Drawing.Point(0, 0);
+            this.lblfound.Location = new System.Drawing.Point(12, 22);
             this.lblfound.Name = "lblfound";
-            this.lblfound.Size = new System.Drawing.Size(206, 32);
+            this.lblfound.Size = new System.Drawing.Size(180, 28);
             this.lblfound.TabIndex = 4;
             this.lblfound.Text = "Найдено сделок: ";
             // 
@@ -60,7 +60,7 @@
             this.Controls.Add(this.panel);
             this.Controls.Add(this.lblfound);
             this.Name = "UCSpecialistDeals";
-            this.Size = new System.Drawing.Size(750, 477);
+            this.Size = new System.Drawing.Size(932, 570);
             this.Load += new System.EventHandler(this.UCSpecialistDeals_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -36,18 +36,18 @@
             // 
             this.panelReqs.AutoScroll = true;
             this.panelReqs.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panelReqs.Location = new System.Drawing.Point(0, 35);
+            this.panelReqs.Location = new System.Drawing.Point(3, 53);
             this.panelReqs.Name = "panelReqs";
-            this.panelReqs.Size = new System.Drawing.Size(750, 468);
+            this.panelReqs.Size = new System.Drawing.Size(910, 483);
             this.panelReqs.TabIndex = 0;
             // 
             // lblCountReqs
             // 
             this.lblCountReqs.AutoSize = true;
-            this.lblCountReqs.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblCountReqs.Location = new System.Drawing.Point(0, 0);
+            this.lblCountReqs.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCountReqs.Location = new System.Drawing.Point(12, 22);
             this.lblCountReqs.Name = "lblCountReqs";
-            this.lblCountReqs.Size = new System.Drawing.Size(204, 32);
+            this.lblCountReqs.Size = new System.Drawing.Size(178, 28);
             this.lblCountReqs.TabIndex = 0;
             this.lblCountReqs.Text = "Найдено заявок: ";
             // 
@@ -59,7 +59,7 @@
             this.Controls.Add(this.lblCountReqs);
             this.Controls.Add(this.panelReqs);
             this.Name = "UCRequests";
-            this.Size = new System.Drawing.Size(750, 503);
+            this.Size = new System.Drawing.Size(932, 570);
             this.Load += new System.EventHandler(this.UCRequests_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

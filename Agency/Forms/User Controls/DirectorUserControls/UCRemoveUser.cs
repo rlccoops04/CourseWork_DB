@@ -61,15 +61,15 @@ namespace Agency.Forms.User_Controls.DirectorUserControls
             bool result = false;
             if (cbRole.Text == "Покупатель")
             {
-                result = buyerServ.Remove(Convert.ToInt32(cbUser.Text[cbUser.Text.Length - 2]));
+                result = buyerServ.Remove(cbUser.Text[cbUser.Text.Length - 2] - '0');
             }
             else if (cbRole.Text == "Продавец")
             {
-                result = ownerServ.Remove(Convert.ToInt32(cbUser.Text[cbUser.Text.Length - 2]));
+                result = ownerServ.Remove(cbUser.Text[cbUser.Text.Length - 2] - '0');
             }
             else if (cbRole.Text == "Специалист")
             {
-                result = specServ.Remove((int)(cbUser.Text[cbUser.Text.Length - 2]));
+                result = specServ.Remove((cbUser.Text[cbUser.Text.Length - 2]) - '0');
             }
             if (result)
             {

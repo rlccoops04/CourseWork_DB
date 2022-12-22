@@ -45,51 +45,57 @@
             // lblFurniture
             // 
             this.lblFurniture.AutoSize = true;
+            this.lblFurniture.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblFurniture.Location = new System.Drawing.Point(197, 165);
             this.lblFurniture.Name = "lblFurniture";
-            this.lblFurniture.Size = new System.Drawing.Size(70, 20);
+            this.lblFurniture.Size = new System.Drawing.Size(72, 20);
             this.lblFurniture.TabIndex = 17;
             this.lblFurniture.Text = "Мебель: ";
             // 
             // lblMetro
             // 
             this.lblMetro.AutoSize = true;
+            this.lblMetro.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblMetro.Location = new System.Drawing.Point(197, 146);
             this.lblMetro.Name = "lblMetro";
-            this.lblMetro.Size = new System.Drawing.Size(61, 20);
+            this.lblMetro.Size = new System.Drawing.Size(63, 20);
             this.lblMetro.TabIndex = 16;
             this.lblMetro.Text = "Метро: ";
             // 
             // lblLivespace
             // 
             this.lblLivespace.AutoSize = true;
+            this.lblLivespace.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblLivespace.Location = new System.Drawing.Point(197, 126);
             this.lblLivespace.Name = "lblLivespace";
-            this.lblLivespace.Size = new System.Drawing.Size(128, 20);
+            this.lblLivespace.Size = new System.Drawing.Size(132, 20);
             this.lblLivespace.TabIndex = 15;
             this.lblLivespace.Text = "Жилая площадь: ";
             // 
             // lblYear
             // 
             this.lblYear.AutoSize = true;
+            this.lblYear.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblYear.Location = new System.Drawing.Point(197, 106);
             this.lblYear.Name = "lblYear";
-            this.lblYear.Size = new System.Drawing.Size(118, 20);
+            this.lblYear.Size = new System.Drawing.Size(120, 20);
             this.lblYear.TabIndex = 14;
             this.lblYear.Text = "Год постройки: ";
             // 
             // lblType
             // 
             this.lblType.AutoSize = true;
+            this.lblType.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblType.Location = new System.Drawing.Point(197, 86);
             this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(120, 20);
+            this.lblType.Size = new System.Drawing.Size(121, 20);
             this.lblType.TabIndex = 13;
             this.lblType.Text = "Тип постройки: ";
             // 
             // lblAdress
             // 
             this.lblAdress.AutoSize = true;
+            this.lblAdress.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblAdress.Location = new System.Drawing.Point(197, 59);
             this.lblAdress.MaximumSize = new System.Drawing.Size(500, 0);
             this.lblAdress.Name = "lblAdress";
@@ -99,7 +105,7 @@
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
-            this.lblPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPrice.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblPrice.Location = new System.Drawing.Point(197, 31);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(0, 28);
@@ -108,7 +114,7 @@
             // lblMainInfo
             // 
             this.lblMainInfo.AutoSize = true;
-            this.lblMainInfo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblMainInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblMainInfo.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.lblMainInfo.Location = new System.Drawing.Point(197, 3);
             this.lblMainInfo.Name = "lblMainInfo";
@@ -128,9 +134,10 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(565, 6);
+            this.btnRemove.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnRemove.Location = new System.Drawing.Point(756, 161);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(94, 29);
+            this.btnRemove.Size = new System.Drawing.Size(120, 29);
             this.btnRemove.TabIndex = 18;
             this.btnRemove.Text = "Удалить";
             this.btnRemove.UseVisualStyleBackColor = true;
@@ -152,7 +159,7 @@
             this.Controls.Add(this.lblMainInfo);
             this.Controls.Add(this.pictureBox1);
             this.Name = "UCRemoveApartment";
-            this.Size = new System.Drawing.Size(671, 198);
+            this.Size = new System.Drawing.Size(879, 198);
             this.Load += new System.EventHandler(this.UCRemoveApartment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

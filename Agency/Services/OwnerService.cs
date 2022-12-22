@@ -54,6 +54,10 @@ namespace Agency.Services
             {
                 return false;
             }
+            if (owner.Apartments.Count != 0)
+            {
+                MessageBox.Show("У продавца остались квартиры. Удаление невозможно.");
+            }
             context.Owners.Remove(owner);
             context.SaveChanges();
             return true;

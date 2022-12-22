@@ -35,13 +35,13 @@ namespace Agency.Forms.User_Controls
                     Label label = new Label();
                     label.Location = new Point(10, i);
                     label.Size = new Size(label.Width + 50, label.Height);
-                    label.Font = new Font(label.Font.Name, 9, label.Font.Style);
+                    label.Font = new Font(label.Font.Name, 9, FontStyle.Bold);
                     pnlAparts.Controls.Add(label);
                     i += 30;
                     if (apartment.Deals.Count != 0)
                     {
                         ucApartment = new(apartment);
-                        ucApartment.Location = new Point(0, i);
+                        ucApartment.Location = new Point(10, i);
                         pnlAparts.Controls.Add(ucApartment);
                         label.Text = "Продана";
                         label.ForeColor = Color.Red;
@@ -49,7 +49,7 @@ namespace Agency.Forms.User_Controls
                     else if (apartment.Requests.Count != 0)
                     {
                         ucApartment = new(apartment);
-                        ucApartment.Location = new Point(0, i);
+                        ucApartment.Location = new Point(10, i);
                         pnlAparts.Controls.Add(ucApartment);
                         label.Text = "Забронирована";
                         label.ForeColor = Color.DarkOrange;
@@ -57,7 +57,7 @@ namespace Agency.Forms.User_Controls
                     else
                     {
                         ucRemoveApart = new(apartment);
-                        ucRemoveApart.Location = new Point(0, i);
+                        ucRemoveApart.Location = new Point(10, i);
                         pnlAparts.Controls.Add(ucRemoveApart);
                         label.Text = "На продаже";
                         label.ForeColor = Color.Green;

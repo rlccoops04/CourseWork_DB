@@ -39,6 +39,7 @@ namespace Agency
                 lblNomTel.Text += buyer.NomTelBuyer;
                 lblLogin.Text += buyer.LoginBuyer;
                 lblPassword.Text += buyer.PasswordBuyer;
+                lblId.Text += buyer.IdBuyer;
                 lblRole.Text += "Покупатель";
             }
             if (role == "Owner")
@@ -50,6 +51,7 @@ namespace Agency
                 lblNomTel.Text += owner.NomTelOwner;
                 lblLogin.Text += owner.LoginOwner;
                 lblPassword.Text += owner.PasswordOwner;
+                lblId.Text += owner.IdOwner;
                 lblRole.Text += "Продавец";
             }
             if (role == "Spec")
@@ -61,6 +63,7 @@ namespace Agency
                 lblNomTel.Text += specialist.NomTelSpec;
                 lblLogin.Text += specialist.LoginSpec;
                 lblPassword.Text += specialist.PasswordSpec;
+                lblId.Text += specialist.IdSpec;
                 lblRole.Text += "Специалист";
             }
         }

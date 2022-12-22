@@ -52,6 +52,11 @@ namespace Agency.Services
                 MessageBox.Show("Пользователь не найден");
                 return false;
             }
+            if (specialist.Deals.Count != 0)
+            {
+                MessageBox.Show("У специалиста найдены сделки. Сначала удалите их.");
+                return false;
+            }
             context.Specialists.Remove(specialist);
             context.SaveChanges();
             return true;

@@ -31,7 +31,7 @@ namespace Agency.Forms.User_Controls
             foreach (Deal deal in buyer.Deals)
             {
                 ucApartment = new(apartService.GetApartment(deal.KadastrNom));
-                ucApartment.Location = new Point(0, i);
+                ucApartment.Location = new Point(10, i);
                 pnlAparts.Controls.Add(ucApartment);
                 i += 240;
             }

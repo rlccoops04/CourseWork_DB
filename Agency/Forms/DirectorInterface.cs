@@ -38,5 +38,10 @@ namespace Agency.Forms.User_Controls
         {
             Application.Exit();
         }
+
+        private void btnReqs_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

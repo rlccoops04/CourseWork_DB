@@ -31,7 +31,7 @@
             this.btnUsers = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
+            this.btnReqs = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -66,15 +66,16 @@
             this.button6.Text = "Квартиры";
             this.button6.UseVisualStyleBackColor = true;
             // 
-            // button12
+            // btnReqs
             // 
-            this.button12.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button12.Location = new System.Drawing.Point(12, 179);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(150, 55);
-            this.button12.TabIndex = 18;
-            this.button12.Text = "Запросы";
-            this.button12.UseVisualStyleBackColor = true;
+            this.btnReqs.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnReqs.Location = new System.Drawing.Point(12, 179);
+            this.btnReqs.Name = "btnReqs";
+            this.btnReqs.Size = new System.Drawing.Size(150, 55);
+            this.btnReqs.TabIndex = 18;
+            this.btnReqs.Text = "Запросы";
+            this.btnReqs.UseVisualStyleBackColor = true;
+            this.btnReqs.Click += new System.EventHandler(this.btnReqs_Click);
             // 
             // btnExit
             // 
@@ -93,7 +94,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(924, 567);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.button12);
+            this.Controls.Add(this.btnReqs);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.btnUsers);
@@ -108,7 +109,7 @@
         private Button btnUsers;
         private Button button3;
         private Button button6;
-        private Button button12;
+        private Button btnReqs;
         private Button btnExit;
     }
 }

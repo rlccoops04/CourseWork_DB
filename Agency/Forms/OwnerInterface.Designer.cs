@@ -28,17 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OwnerInterface));
             this.lblCurrPage = new System.Windows.Forms.Label();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.btnAddApartment = new System.Windows.Forms.Button();
-            this.btnMyAparts = new System.Windows.Forms.Button();
-            this.btnSearchAparts = new System.Windows.Forms.Button();
-            this.btnKatalog = new System.Windows.Forms.Button();
-            this.btnProfile = new System.Windows.Forms.Button();
-            this.lblCurrUserName = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblMyProfile = new System.Windows.Forms.Label();
+            this.lblAddApart = new System.Windows.Forms.Label();
+            this.lblMyAparts = new System.Windows.Forms.Label();
+            this.lblAparts = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblExit = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblCurrPage
@@ -50,89 +48,95 @@
             this.lblCurrPage.Size = new System.Drawing.Size(0, 35);
             this.lblCurrPage.TabIndex = 19;
             // 
-            // btnExit
+            // panel1
             // 
-            this.btnExit.BackColor = System.Drawing.Color.Transparent;
-            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnExit.Location = new System.Drawing.Point(12, 474);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(171, 53);
-            this.btnExit.TabIndex = 18;
-            this.btnExit.Text = "Выход";
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.panel1.Controls.Add(this.lblMyProfile);
+            this.panel1.Controls.Add(this.lblAddApart);
+            this.panel1.Controls.Add(this.lblMyAparts);
+            this.panel1.Controls.Add(this.lblAparts);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.lblExit);
+            this.panel1.Location = new System.Drawing.Point(-5, -3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(920, 50);
+            this.panel1.TabIndex = 20;
             // 
-            // btnAddApartment
+            // lblMyProfile
             // 
-            this.btnAddApartment.Location = new System.Drawing.Point(12, 415);
-            this.btnAddApartment.Name = "btnAddApartment";
-            this.btnAddApartment.Size = new System.Drawing.Size(171, 53);
-            this.btnAddApartment.TabIndex = 16;
-            this.btnAddApartment.Text = "Продать квартиру";
-            this.btnAddApartment.UseVisualStyleBackColor = true;
-            this.btnAddApartment.Click += new System.EventHandler(this.btnAddApartment_Click);
+            this.lblMyProfile.AutoSize = true;
+            this.lblMyProfile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblMyProfile.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMyProfile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblMyProfile.Location = new System.Drawing.Point(665, 12);
+            this.lblMyProfile.Name = "lblMyProfile";
+            this.lblMyProfile.Size = new System.Drawing.Size(122, 23);
+            this.lblMyProfile.TabIndex = 9;
+            this.lblMyProfile.Text = "Мой профиль";
+            this.lblMyProfile.Click += new System.EventHandler(this.lblMyProfile_Click);
             // 
-            // btnMyAparts
+            // lblAddApart
             // 
-            this.btnMyAparts.Location = new System.Drawing.Point(12, 356);
-            this.btnMyAparts.Name = "btnMyAparts";
-            this.btnMyAparts.Size = new System.Drawing.Size(171, 53);
-            this.btnMyAparts.TabIndex = 15;
-            this.btnMyAparts.Text = "Мои квартиры";
-            this.btnMyAparts.UseVisualStyleBackColor = true;
-            this.btnMyAparts.Click += new System.EventHandler(this.btnMyAparts_Click);
+            this.lblAddApart.AutoSize = true;
+            this.lblAddApart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblAddApart.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblAddApart.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblAddApart.Location = new System.Drawing.Point(485, 12);
+            this.lblAddApart.Name = "lblAddApart";
+            this.lblAddApart.Size = new System.Drawing.Size(156, 23);
+            this.lblAddApart.TabIndex = 7;
+            this.lblAddApart.Text = "Продать квартиру";
+            this.lblAddApart.Click += new System.EventHandler(this.lblAddApart_Click);
             // 
-            // btnSearchAparts
+            // lblMyAparts
             // 
-            this.btnSearchAparts.Location = new System.Drawing.Point(12, 297);
-            this.btnSearchAparts.Name = "btnSearchAparts";
-            this.btnSearchAparts.Size = new System.Drawing.Size(171, 53);
-            this.btnSearchAparts.TabIndex = 14;
-            this.btnSearchAparts.Text = "Поиск квартиры по параметрам";
-            this.btnSearchAparts.UseVisualStyleBackColor = true;
-            this.btnSearchAparts.Click += new System.EventHandler(this.btnSearchAparts_Click);
+            this.lblMyAparts.AutoSize = true;
+            this.lblMyAparts.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblMyAparts.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblMyAparts.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblMyAparts.Location = new System.Drawing.Point(338, 12);
+            this.lblMyAparts.Name = "lblMyAparts";
+            this.lblMyAparts.Size = new System.Drawing.Size(128, 23);
+            this.lblMyAparts.TabIndex = 6;
+            this.lblMyAparts.Text = "Мои квартиры";
+            this.lblMyAparts.Click += new System.EventHandler(this.lblMyAparts_Click);
             // 
-            // btnKatalog
+            // lblAparts
             // 
-            this.btnKatalog.Location = new System.Drawing.Point(12, 238);
-            this.btnKatalog.Name = "btnKatalog";
-            this.btnKatalog.Size = new System.Drawing.Size(171, 53);
-            this.btnKatalog.TabIndex = 13;
-            this.btnKatalog.Text = "Каталог квартир";
-            this.btnKatalog.UseVisualStyleBackColor = true;
-            this.btnKatalog.Click += new System.EventHandler(this.btnKatalog_Click);
+            this.lblAparts.AutoSize = true;
+            this.lblAparts.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblAparts.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblAparts.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblAparts.Location = new System.Drawing.Point(221, 12);
+            this.lblAparts.Name = "lblAparts";
+            this.lblAparts.Size = new System.Drawing.Size(88, 23);
+            this.lblAparts.TabIndex = 5;
+            this.lblAparts.Text = "Квартиры";
+            this.lblAparts.Click += new System.EventHandler(this.lblAparts_Click);
             // 
-            // btnProfile
+            // label2
             // 
-            this.btnProfile.Location = new System.Drawing.Point(12, 179);
-            this.btnProfile.Name = "btnProfile";
-            this.btnProfile.Size = new System.Drawing.Size(171, 53);
-            this.btnProfile.TabIndex = 12;
-            this.btnProfile.Text = "Мой профиль";
-            this.btnProfile.UseVisualStyleBackColor = true;
-            this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Cambria", 22.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.Navy;
+            this.label2.Location = new System.Drawing.Point(16, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(130, 43);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Agency";
             // 
-            // lblCurrUserName
+            // lblExit
             // 
-            this.lblCurrUserName.AutoSize = true;
-            this.lblCurrUserName.BackColor = System.Drawing.Color.Transparent;
-            this.lblCurrUserName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblCurrUserName.Location = new System.Drawing.Point(53, 124);
-            this.lblCurrUserName.Name = "lblCurrUserName";
-            this.lblCurrUserName.Size = new System.Drawing.Size(88, 23);
-            this.lblCurrUserName.TabIndex = 11;
-            this.lblCurrUserName.Text = "Продавец";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(36, 13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(122, 108);
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
+            this.lblExit.AutoSize = true;
+            this.lblExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblExit.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblExit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblExit.Location = new System.Drawing.Point(811, 12);
+            this.lblExit.Name = "lblExit";
+            this.lblExit.Size = new System.Drawing.Size(62, 23);
+            this.lblExit.TabIndex = 3;
+            this.lblExit.Text = "Выход";
+            this.lblExit.Click += new System.EventHandler(this.lblExit_Click);
             // 
             // OwnerInterface
             // 
@@ -140,20 +144,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1012, 609);
+            this.ClientSize = new System.Drawing.Size(914, 609);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblCurrPage);
-            this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnAddApartment);
-            this.Controls.Add(this.btnMyAparts);
-            this.Controls.Add(this.btnSearchAparts);
-            this.Controls.Add(this.btnKatalog);
-            this.Controls.Add(this.btnProfile);
-            this.Controls.Add(this.lblCurrUserName);
-            this.Controls.Add(this.pictureBox1);
             this.Name = "OwnerInterface";
             this.Text = "OwnerInterface";
             this.Load += new System.EventHandler(this.OwnerInterface_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,13 +160,12 @@
         #endregion
 
         private Label lblCurrPage;
-        private Button btnExit;
-        private Button btnAddApartment;
-        private Button btnMyAparts;
-        private Button btnSearchAparts;
-        private Button btnKatalog;
-        private Button btnProfile;
-        private Label lblCurrUserName;
-        private PictureBox pictureBox1;
+        private Panel panel1;
+        private Label lblMyProfile;
+        private Label lblAddApart;
+        private Label lblMyAparts;
+        private Label lblAparts;
+        private Label label2;
+        private Label lblExit;
     }
 }

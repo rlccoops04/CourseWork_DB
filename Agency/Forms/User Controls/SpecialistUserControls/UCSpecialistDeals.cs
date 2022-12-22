@@ -26,13 +26,13 @@ namespace Agency.Forms.User_Controls
 
         private void UCSpecialistDeals_Load(object sender, EventArgs e)
         {
-            int i = 10;
+            int i = 0;
             foreach (Deal deal in dealService.GetDeals(specService.GetSpecialist(id_spec)))
             {
                 ucDeal = new(deal);
                 ucDeal.Location = new Point(10, i);
                 panel.Controls.Add(ucDeal);
-                i += 450;
+                i += 120;
             }
             lblfound.Text += dealService.GetDeals(specService.GetSpecialist(id_spec)).Count().ToString();
         }

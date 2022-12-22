@@ -29,7 +29,7 @@ namespace Agency.Forms.User_Controls
             foreach (Apartment apartment in apartmentServ.GetFreeAparts())
             {
                 ucApartment = new(apartment, id_user);
-                ucApartment.Location = new Point(0, i);
+                ucApartment.Location = new Point(10, i);
                 pnlAparts.Controls.Add(ucApartment);
                 i += 240;
             }

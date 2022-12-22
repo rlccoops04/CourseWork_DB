@@ -91,7 +91,11 @@ namespace Agency.Services
                 context.SaveChanges();
                 return true;
             }
-            return false;
+            else
+            {
+                MessageBox.Show("На квартиру найдены сделки или запросы. Удаление невозможно.");
+                return false;
+            }
         }
     }
 }

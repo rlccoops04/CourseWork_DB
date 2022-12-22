@@ -26,10 +26,10 @@ namespace Agency
 
         private void UCRequest_Load(object sender, EventArgs e)
         {
-            lblDate.Text = request.DataReq.ToString();
+            lblDate.Text += request.DataReq.ToString();
             lblReqID.Text += request.IdReq.ToString();
             ucApartment = new(request.KadastrNomNavigation);
-            ucApartment.Location = new Point(0, 50);
+            ucApartment.Location = new Point(0, 38);
             this.Controls.Add(ucApartment);
         }
 

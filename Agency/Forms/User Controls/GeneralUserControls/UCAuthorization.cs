@@ -29,12 +29,12 @@ namespace Agency
             this.Parent.Hide();
             DirectorInterface directorInterface = new();
             directorInterface.Show();
-/*            SpecialistInterface specialistInterface = new(2);
+            SpecialistInterface specialistInterface = new(2);
             specialistInterface.Show();
-            BuyerInterface buyerInterface = new(buyerServ.GetBuyer("test124").IdBuyer);
+            BuyerInterface buyerInterface = new(1);
             buyerInterface.Show();
             OwnerInterface ownerInterface = new(1);
-            ownerInterface.Show();*/
+            ownerInterface.Show();
             /*            if (buyerServ.IsExist(tbLogin.Text, tbPassword.Text))
                         {
                             this.Hide();

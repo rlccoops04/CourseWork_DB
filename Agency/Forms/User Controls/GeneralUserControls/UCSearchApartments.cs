@@ -24,6 +24,11 @@ namespace Agency
             apartmentServ = new();
             InitializeComponent();
         }
+        private void UCSearchApartments_Load(object sender, EventArgs e)
+        {
+            DuplicateList();
+            ShowAparts();
+        }
         private void DuplicateList()
         {
             foreach (Apartment apartment in apartmentServ.GetFreeAparts())
@@ -45,9 +50,11 @@ namespace Agency
             {
                 ucApartment = new(apartment);
                 ucApartment.Location = new Point(0, i);
+                ucApartment.Size = new Size(655, ucApartment.Height);
                 panel.Controls.Add(ucApartment);
                 i += 240;
             }
+            lblCountAparts.Text = "Найдено квартир: " + searchedApartments.Count.ToString();
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {

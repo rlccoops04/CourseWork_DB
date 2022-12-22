@@ -23,12 +23,21 @@ namespace Agency.Forms.User_Controls
         private void UCDeal_Load(object sender, EventArgs e)
         {
             lblNumDeal.Text += deal.KodDeal;
-            lblBuyer.Text += deal.IdBuyerNavigation.FioBuyer + "(id: " +deal.IdBuyerNavigation.IdBuyer + ")";
+            lblBuyer.Text += deal.IdBuyerNavigation.FioBuyer + "(id: " + deal.IdBuyerNavigation.IdBuyer + ")";
             lblSpec.Text += deal.IdSpecNavigation.FioSpec + "(id: " + deal.IdSpecNavigation.IdSpec + ")";
-            lblDate.Text += deal.DataDeal;
-            UCApartment ucApartment = new(deal.KadastrNomNavigation);
-            ucApartment.Location = new Point(12, 190);
-            this.Controls.Add(ucApartment);
+            lblDate.Text += DateTime.Parse(deal.DataDeal.ToString()).ToShortDateString();
+            Label lblAdres = new Label();
+            lblAdres.Location = new Point(130, 14);
+            lblAdres.Font = new Font(lblAdres.Font.Name,11,FontStyle.Bold);
+            lblAdres.Text = deal.KadastrNomNavigation.IdAdresNavigation.Adress;
+            lblAdres.Size = new Size(1000 ,lblAdres.Height);
+            this.Controls.Add(lblAdres);
+            Label lblPrice = new Label();
+            lblPrice.Location = new Point(130, 39);
+            lblPrice.Font = new Font(lblPrice.Font.Name, 11, FontStyle.Bold);
+            lblPrice.Text = String.Format("{0:N}", Convert.ToInt64(deal.KadastrNomNavigation.Price)) + " ₽";
+            lblPrice.Size = new Size(1000, lblPrice.Height);
+            this.Controls.Add(lblPrice);
         }
     }
 }
