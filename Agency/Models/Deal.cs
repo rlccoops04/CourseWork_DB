@@ -9,9 +9,9 @@ public partial class Deal
 
     public DateTime DataDeal { get; set; }
 
-    public string? KadastrNom { get; set; }
-
     public int IdBuyer { get; set; }
+
+    public string KadastrNom { get; set; } = null!;
 
     public int IdSpec { get; set; }
 
@@ -19,5 +19,5 @@ public partial class Deal
 
     public virtual Specialist IdSpecNavigation { get; set; } = null!;
 
-    public virtual Apartment? KadastrNomNavigation { get; set; }
+    public virtual Apartment KadastrNomNavigation { get; set; } = null!;
 }

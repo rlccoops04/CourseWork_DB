@@ -46,7 +46,7 @@ namespace Agency.Forms.User_Controls.DirectorUserControls
             var owners = ownerServ.GetOwners();
             foreach (Owner owner in owners)
             {
-                cbOwners.Items.Add(owner.FioOwner + "(id: " + owner.IdOwner + ")");
+                cbOwners.Items.Add(owner.SurnameOwner + " " + owner.NameOwner + "(id: " + owner.IdOwner + ")");
             }
         }
 

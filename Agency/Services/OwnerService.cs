@@ -28,7 +28,7 @@ namespace Agency.Services
         {
             return GetOwners().Any(x => x.LoginOwner == Login);
         }
-        public bool Add(string Fio, string Passport, string NomTel, string Login, string Password)
+        public bool Add(string Surname,string Name, string Passport, string NomTel, string Login, string Password)
         {
             if (GetOwners().Any(x => x.PassportNumOwner == Passport) || Passport.Length > 11 ||
                 GetOwners().Any(x => x.NomTelOwner == NomTel) || IsExist(Login)) 
@@ -37,7 +37,8 @@ namespace Agency.Services
             }
             Owner owner = new Owner
             {
-                FioOwner = Fio,
+                SurnameOwner = Surname,
+                NameOwner = Name,
                 PassportNumOwner = Passport,
                 NomTelOwner = NomTel,
                 LoginOwner = Login,
@@ -65,9 +66,13 @@ namespace Agency.Services
         public bool Change(int id, string newValue, string option)
         {
             var Owner = GetOwner(id);
-            if (option == "ФИО")
+            if (option == "Фамилия")
             {
-                Owner.FioOwner = newValue;
+                Owner.SurnameOwner = newValue;
+            }
+            if (option == "Имя")
+            {
+                Owner.NameOwner = newValue;
             }
             if (option == "Номер телефона")
             {

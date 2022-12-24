@@ -37,27 +37,30 @@ namespace Agency.Forms
         }
         private void AddControl(UserControl userControl)
         {
-            DisposeAll();
             userControl.Location = new Point(0, 43);
             this.Controls.Add(userControl);
         }
         private void ShowAparts_Click(object sender, EventArgs e)
         {
+            DisposeAll();
             ucSearchApartments = new UCSearchApartments();
             AddControl(ucSearchApartments);
         }
         private void ShowMyAparts_Click(object sender, EventArgs e)
         {
+            DisposeAll();
             ucMyAparts = new UCMyAparts(id_owner);
             AddControl(ucMyAparts);
         }
         private void AddApart_Click(object sender, EventArgs e)
         {
+            DisposeAll();
             ucAddApartment = new UCAddApartment(id_owner);
             AddControl(ucAddApartment);
         }
         private void MyProfile_Click(object sender, EventArgs e)
-        { 
+        {
+            DisposeAll();
             ucProfile = new UCProfile(id_owner, "Owner");
             AddControl(ucProfile);
         }

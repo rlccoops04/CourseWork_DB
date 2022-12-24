@@ -17,7 +17,7 @@ namespace Agency.Forms.User_Controls.DirectorUserControls
 
         private void btnReg_Click(object sender, EventArgs e)
         {
-            if (tbLogin.Text == "" || tbPassword.Text == "" || tbPassport.Text == "" || tbName.Text == "" || tbNomTel.Text == "")
+            if (tbLogin.Text == "" || tbPassword.Text == "" || tbPassport.Text == "" || tbSurname.Text == "" || tbNomTel.Text == "")
             {
                 MessageBox.Show("Заполнены не все поля", "Ошибка");
                 return;
@@ -30,7 +30,7 @@ namespace Agency.Forms.User_Controls.DirectorUserControls
                     MessageBox.Show("Данный логин уже используется.", "Ошибка");
                     return;
                 }
-                var result = buyerServ.Add(tbName.Text, tbPassport.Text, tbNomTel.Text, tbLogin.Text, tbPassword.Text);
+                var result = buyerServ.Add(tbSurname.Text,tbName.Text, tbPassport.Text, tbNomTel.Text, tbLogin.Text, tbPassword.Text);
                 if (!result)
                 {
                     MessageBox.Show("Ошибка при регистрации", "Ошибка");
@@ -45,7 +45,7 @@ namespace Agency.Forms.User_Controls.DirectorUserControls
                     MessageBox.Show("Данный логин уже используется.", "Ошибка");
                     return;
                 }
-                var result = ownerServ.Add(tbName.Text, tbPassport.Text, tbNomTel.Text, tbLogin.Text, tbPassword.Text);
+                var result = ownerServ.Add(tbSurname.Text, tbName.Text, tbPassport.Text, tbNomTel.Text, tbLogin.Text, tbPassword.Text);
                 if (!result)
                 {
                     MessageBox.Show("Ошибка", "Ошибка");
@@ -60,7 +60,7 @@ namespace Agency.Forms.User_Controls.DirectorUserControls
                     MessageBox.Show("Данный логин уже используется.", "Ошибка");
                     return;
                 }
-                var result = specServ.Add(tbName.Text, tbPassport.Text, tbNomTel.Text, tbLogin.Text, tbPassword.Text);
+                var result = specServ.Add(tbSurname.Text, tbName.Text, tbPassport.Text, tbNomTel.Text, tbLogin.Text, tbPassword.Text);
                 if (!result)
                 {
                     MessageBox.Show("Ошибка при регистрации", "Ошибка");

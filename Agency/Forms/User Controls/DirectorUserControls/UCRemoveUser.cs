@@ -35,7 +35,7 @@ namespace Agency.Forms.User_Controls.DirectorUserControls
                 var buyers = buyerServ.GetBuyers();
                 foreach (Buyer buyer in buyers)
                 {
-                    cbUser.Items.Add(buyer.FioBuyer + "(id: " + buyer.IdBuyer + ")");
+                    cbUser.Items.Add(buyer.SurnameBuyer + " " + buyer.NameBuyer + "(id: " + buyer.IdBuyer + ")");
                 }
             }
             else if (cbRole.Text == "Продавец")
@@ -43,7 +43,7 @@ namespace Agency.Forms.User_Controls.DirectorUserControls
                 var owners = ownerServ.GetOwners();
                 foreach (Owner owner in owners)
                 {
-                    cbUser.Items.Add(owner.FioOwner + "(id: " + owner.IdOwner + ")");
+                    cbUser.Items.Add(owner.SurnameOwner + " " + owner.NameOwner + "(id: " + owner.IdOwner + ")");
                 }
             }
             else if (cbRole.Text == "Специалист")
@@ -51,7 +51,7 @@ namespace Agency.Forms.User_Controls.DirectorUserControls
                 var specialists = specServ.GetSpecs();
                 foreach (Specialist specialist in specialists)
                 {
-                    cbUser.Items.Add(specialist.FioSpec + "(id: " + specialist.IdSpec + ")");
+                    cbUser.Items.Add(specialist.SurnameSpec + " " + specialist.NameSpec + "(id: " + specialist.IdSpec + ")");
                 }
             }
         }
@@ -74,6 +74,10 @@ namespace Agency.Forms.User_Controls.DirectorUserControls
             if (result)
             {
                 MessageBox.Show("Пользователь успешно удален");
+            }
+            else
+            {
+                MessageBox.Show("У пользователя найдены связи с объектами в Базе данных.", "Ошибка");
             }
             cbRole.Text = "";
             cbUser.Items.Clear();

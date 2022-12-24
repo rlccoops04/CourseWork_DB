@@ -82,7 +82,7 @@ namespace Agency
             UCRegistration ucReg = new();
             ucReg.Location = new Point(0, 10);
             this.Parent.Controls.Add(ucReg);
-            this.Parent.Size = new Size(380, 450);
+            this.Parent.Size = new Size(380, 500);
             this.Dispose();
             ucReg.Show();
         }

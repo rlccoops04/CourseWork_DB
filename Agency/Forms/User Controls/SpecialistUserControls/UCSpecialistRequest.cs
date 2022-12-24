@@ -37,10 +37,12 @@ namespace Agency.Forms.User_Controls
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            btnConfirm.Enabled = false;
-            btnCancel.Enabled = false;
-            dealService.Add(request.IdReq,request.KadastrNom, request.IdBuyer, id_spec);
-            reqService.Remove(request);
+            if (dealService.Add(request.IdReq, request.KadastrNom, request.IdBuyer, id_spec))
+            {
+                reqService.Remove(request);
+                btnConfirm.Enabled = false;
+                btnCancel.Enabled = false;
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

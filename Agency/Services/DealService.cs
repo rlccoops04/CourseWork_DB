@@ -47,7 +47,7 @@ namespace Agency.Services
             {
                 Deal deal = new Deal()
                 {
-                    KodDeal=id,
+                    //KodDeal=id,
                     KadastrNom = KadastrNom,
                     IdBuyer = IdBuyer,
                     IdSpec = IdSpec,

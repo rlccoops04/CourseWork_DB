@@ -97,25 +97,25 @@ namespace Agency.Forms.User_Controls.DirectorUserControls
                     MessageBox.Show("Ошибка ввода идентификатора");
                 }
             }
-            if (tbFio.Text != "")
+            if (tbName.Text != "")
             {
                 foreach (Buyer buyer in buyerService.GetBuyers())
                 {
-                    if (buyer.FioBuyer != tbFio.Text)
+                    if (buyer.NameBuyer != tbName.Text && buyer.SurnameBuyer != tbSurname.Text)
                     {
                         buyers.Remove(buyer);
                     }
                 }
                 foreach (Owner owner in ownerService.GetOwners())
                 {
-                    if (owner.FioOwner != tbFio.Text)
+                    if (owner.NameOwner != tbName.Text && tbSurname.Text != owner.SurnameOwner)
                     {
                         owners.Remove(owner);
                     }
                 }
                 foreach (Specialist specialist in specService.GetSpecs())
                 {
-                    if (specialist.FioSpec != tbFio.Text)
+                    if (specialist.NameSpec != tbName.Text && tbSurname.Text != specialist.SurnameSpec)
                     {
                         specialists.Remove(specialist);
                     }
@@ -139,7 +139,7 @@ namespace Agency.Forms.User_Controls.DirectorUserControls
                 }
                 foreach (Specialist specialist in specService.GetSpecs())
                 {
-                    if (specialist.PassportNumSpec != tbPassport.Text)
+                    if (specialist.PassportSpec != tbPassport.Text)
                     {
                         specialists.Remove(specialist);
                     }

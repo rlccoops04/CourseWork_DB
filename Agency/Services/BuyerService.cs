@@ -32,7 +32,7 @@ namespace Agency.Services
         {
             return GetBuyers().Any(x => x.LoginBuyer == Login);
         }
-        public bool Add(string Fio, string Passport, string NomTel, string Login, string Password)
+        public bool Add(string Surname, string Name, string Passport, string NomTel, string Login, string Password)
         {
             if (GetBuyers().Any(x => x.PassportNumBuyer == Passport) || Passport.Length > 11 || 
                 GetBuyers().Any(x => x.NomTelBuyer == NomTel) || IsExist(Login))
@@ -41,7 +41,8 @@ namespace Agency.Services
             }
             Buyer buyer = new Buyer
             {
-                FioBuyer = Fio,
+                SurnameBuyer = Surname,
+                NameBuyer = Name,
                 PassportNumBuyer = Passport,
                 NomTelBuyer = NomTel,
                 LoginBuyer = Login,
@@ -65,9 +66,13 @@ namespace Agency.Services
         public bool Change(int id, string newValue, string option)
         {
             var Buyer = GetBuyer(id);
-            if (option == "ФИО")
+            if (option == "Фамилия")
             {
-                Buyer.FioBuyer = newValue;
+                Buyer.SurnameBuyer = newValue;
+            }
+            if (option == "Имя")
+            {
+                Buyer.NameBuyer = newValue;
             }
             if (option == "Номер телефона")
             {

@@ -29,12 +29,12 @@ namespace Agency.Forms.User_Controls
             var buyers = buyerServ.GetBuyers();
             foreach (Buyer buyer in buyers)
             {
-                cbBuyer.Items.Add(buyer.FioBuyer + "(id: " + buyer.IdBuyer + ")");
+                cbBuyer.Items.Add(buyer.SurnameBuyer + " " + buyer.NameBuyer + "(id: " + buyer.IdBuyer + ")");
             }
             var specialists = specServ.GetSpecs();
             foreach (Specialist specialist in specialists)
             {
-                cbSpecs.Items.Add(specialist.FioSpec + "(id: " + specialist.IdSpec + ")");
+                cbSpecs.Items.Add(specialist.SurnameSpec + " " + specialist.SurnameSpec + "(id: " + specialist.IdSpec + ")");
             }
         }
         private void HideAll()

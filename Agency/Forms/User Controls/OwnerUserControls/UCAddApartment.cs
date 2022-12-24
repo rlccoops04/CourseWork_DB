@@ -31,13 +31,16 @@ namespace Agency.Forms.User_Controls
 
             try
             {
-                apartService.Add(tbKadastrNom.Text, tbAdress.Text, Convert.ToDouble(tbLiveSpace.Text),
+                apartService.Add(tbKadastrNom.Text, tbCity.Text, tbStreet.Text,tbHomeNom.Text,tbApartNom.Text, Convert.ToDouble(tbLiveSpace.Text),
                     Convert.ToDouble(tbSpace.Text), Convert.ToInt32(tbRoomsMax.Text), Convert.ToInt32(tbFloorMax.Text),
                     cbType.Text, Convert.ToInt32(tbYear.Text), metro, furn, Convert.ToDecimal(tbPriceMax.Text),
                     id_user);
 
                 tbKadastrNom.Text = "";
-                tbAdress.Text = "";
+                tbCity.Text = "";
+                tbStreet.Text = "";
+                tbHomeNom.Text = "";
+                tbApartNom.Text = "";
                 tbLiveSpace.Text = "";
                 tbSpace.Text = "";
                 tbRoomsMax.Text = "";

@@ -164,7 +164,8 @@
             // 
             this.cbOption.FormattingEnabled = true;
             this.cbOption.Items.AddRange(new object[] {
-            "ФИО",
+            "Фамилия",
+            "Имя",
             "Номер телефона",
             "Паспорт",
             "Логин",

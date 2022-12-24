@@ -32,32 +32,36 @@ namespace Agency
         }
         private void AddControl(UserControl userControl)
         {
-            DisposeAll();
             userControl.Location = new Point(0, 43);
             Controls.Add(userControl);
         }
         private void SpecialistInterface_Load(object sender, EventArgs e)
         {
+            DisposeAll();
             ucSearchAparts = new UCSearchApartments();
             AddControl(ucSearchAparts);
         }
         private void ShowAparts_Click(object sender, EventArgs e)
         {
+            DisposeAll();
             ucSearchAparts = new UCSearchApartments();
             AddControl(ucSearchAparts);
         }
         private void ShowRequests_Click(object sender, EventArgs e)
         {
+            DisposeAll();
             ucReqs = new UCSpecialistRequests(id_spec);
             AddControl(ucReqs);
         }
         private void ShowMyDeals_Click(object sender, EventArgs e)
         {
+            DisposeAll();
             ucDeals = new UCSpecialistDeals(id_spec);
             AddControl(ucDeals);
         }
         private void MyProfile_Click(object sender, EventArgs e)
         {
+            DisposeAll();
             ucProfile = new UCProfile(id_spec, "Spec");
             AddControl(ucProfile);
         }

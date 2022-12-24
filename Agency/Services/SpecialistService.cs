@@ -24,17 +24,17 @@ namespace Agency.Services
         {
             return GetSpecs().FirstOrDefault(spec => spec.IdSpec == id);
         }
-        public bool Add(string Fio, string Passport, string NomTel, string Login, string Password)
+        public bool Add(string Surname, string Name, string Passport, string NomTel, string Login, string Password)
         {
-            if (GetSpecs().Any(x => x.PassportNumSpec == Passport) || Passport.Length > 11 || 
+            if (GetSpecs().Any(x => x.PassportSpec == Passport) || Passport.Length > 11 || 
                 GetSpecs().Any(x => x.NomTelSpec == NomTel) || IsExist(Login))
             {
                 return false;
             }
             Specialist specialist = new Specialist
             {
-                FioSpec = Fio,
-                PassportNumSpec = Passport,
+                SurnameSpec = Surname,
+                NameSpec = Name,
                 NomTelSpec = NomTel,
                 LoginSpec = Login,
                 PasswordSpec = Password,
@@ -68,9 +68,13 @@ namespace Agency.Services
         public bool Change(int id, string newValue, string option)
         {
             var Spec = GetSpecialist(id);
-            if (option == "ФИО")
+            if (option == "Фамилия")
             {
-                Spec.FioSpec = newValue;
+                Spec.SurnameSpec = newValue;
+            }
+            if (option == "Имя")
+            {
+                Spec.SurnameSpec = newValue;
             }
             if (option == "Номер телефона")
             {
@@ -90,11 +94,11 @@ namespace Agency.Services
             }
             if (option == "Паспорт")
             {
-                if (GetSpecs().Any(x => x.PassportNumSpec == newValue) || newValue.Length > 11)
+                if (GetSpecs().Any(x => x.PassportSpec == newValue) || newValue.Length > 11)
                 {
                     return false;
                 }
-                Spec.PassportNumSpec = newValue;
+                Spec.PassportSpec = newValue;
             }
             context.SaveChanges();
             return true;

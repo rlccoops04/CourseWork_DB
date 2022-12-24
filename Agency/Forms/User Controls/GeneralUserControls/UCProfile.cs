@@ -23,6 +23,9 @@ namespace Agency
         private string role;
         public UCProfile(int id_user, string role)
         {
+            buyerService = new();
+            ownerService = new();
+            specService = new();
             this.id_user = id_user;
             this.role = role;
             InitializeComponent();
@@ -32,9 +35,8 @@ namespace Agency
         {
             if (role == "Buyer")
             {
-                buyerService = new();
                 var buyer = buyerService.GetBuyer(id_user);
-                lblFio.Text += buyer.FioBuyer;
+                lblFio.Text += buyer.SurnameBuyer + " " + buyer.NameBuyer;
                 lblPassport.Text += buyer.PassportNumBuyer;
                 lblNomTel.Text += buyer.NomTelBuyer;
                 lblLogin.Text += buyer.LoginBuyer;
@@ -44,9 +46,8 @@ namespace Agency
             }
             if (role == "Owner")
             {
-                ownerService = new();
                 var owner = ownerService.GetOwner(id_user);
-                lblFio.Text += owner.FioOwner;
+                lblFio.Text += owner.SurnameOwner + " " + owner.NameOwner;
                 lblPassport.Text += owner.PassportNumOwner;
                 lblNomTel.Text += owner.NomTelOwner;
                 lblLogin.Text += owner.LoginOwner;
@@ -56,9 +57,8 @@ namespace Agency
             }
             if (role == "Spec")
             {
-                specService = new();
                 var specialist = specService.GetSpecialist(id_user);
-                lblFio.Text += specialist.FioSpec;
+                lblFio.Text += specialist.SurnameSpec + " " + specialist.NameSpec;
                 lblPassport.Text += specialist.PasswordSpec;
                 lblNomTel.Text += specialist.NomTelSpec;
                 lblLogin.Text += specialist.LoginSpec;
@@ -88,7 +88,6 @@ namespace Agency
             }
             if (role == "Owner")
             {
-                ownerService.Change(id_user, tbNewValue.Text, cbOption.Text);
                 if (!ownerService.Change(id_user, tbNewValue.Text, cbOption.Text))
                 {
                     MessageBox.Show("Ошибка ввода");
@@ -97,7 +96,6 @@ namespace Agency
             }
             if (role == "Spec")
             {
-                specService.Change(id_user, tbNewValue.Text, cbOption.Text);
                 if (!specService.Change(id_user, tbNewValue.Text, cbOption.Text))
                 {
                     MessageBox.Show("Ошибка ввода");

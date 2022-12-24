@@ -26,7 +26,8 @@ namespace Agency
         {
             lblMainInfo.Text += apartment.CountRooms + "-к. квартира, " + apartment.GeneralSpace + " м2, " + apartment.NumFloor + " эт.";
             lblPrice.Text += String.Format("{0:N}", Convert.ToInt64(apartment.Price)) + " ₽";
-            lblAdress.Text += apartment.IdAdresNavigation.Adress;
+            lblAdress.Text += apartment.IdAdresNavigation.City + ", " + apartment.IdAdresNavigation.Street +
+                ", " + apartment.IdAdresNavigation.HomeNom + ", " + apartment.IdAdresNavigation.ApartNom;
             lblLivespace.Text += apartment.LiveSpace;
             lblType.Text += apartment.TypeBuild;
             lblYear.Text += apartment.YearBuild;

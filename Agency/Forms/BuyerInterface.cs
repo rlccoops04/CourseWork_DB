@@ -47,32 +47,36 @@ namespace Agency
         }
         private void AddControl(UserControl userControl)
         {
-            DisposeAll();
             userControl.Location = new Point(0, 43);
             Controls.Add(userControl);
         }
         private void ShowAparts_Click(object sender, EventArgs e)
         {
+            DisposeAll();
             ucSearchApartments = new UCSearchApartments();
             AddControl(ucSearchApartments);
         }
         private void MyProfile_Click(object sender, EventArgs e)
         {
+            DisposeAll();
             ucProfile = new UCProfile(id_buyer, "Buyer");
             AddControl(ucProfile);
         }
         private void ShowMyDeals_Click(object sender, EventArgs e)
         {
+            DisposeAll();
             ucDeals = new UCMyDeals(id_buyer);
             AddControl(ucDeals);
         }
         private void AddRequest_Click(object sender, EventArgs e)
         {
+            DisposeAll();
             ucAddRequest = new UCAddRequest(id_buyer);
             AddControl(ucAddRequest);
         }
         private void ShowMyRequests_Click(object sender, EventArgs e)
         {
+            DisposeAll();
             ucRequests = new UCRequests(id_buyer);
             AddControl(ucRequests);
         }

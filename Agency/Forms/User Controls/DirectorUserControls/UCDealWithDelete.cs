@@ -25,13 +25,14 @@ namespace Agency.Forms.User_Controls.DirectorUserControls
         private void UCDealWithDelete_Load(object sender, EventArgs e)
         {
             lblNumDeal.Text += deal.KodDeal;
-            lblBuyer.Text += deal.IdBuyerNavigation.FioBuyer + "(id: " + deal.IdBuyerNavigation.IdBuyer + ")";
-            lblSpec.Text += deal.IdSpecNavigation.FioSpec + "(id: " + deal.IdSpecNavigation.IdSpec + ")";
+            lblBuyer.Text += deal.IdBuyerNavigation.SurnameBuyer + " " + deal.IdBuyerNavigation.NameBuyer + "(id: " + deal.IdBuyerNavigation.IdBuyer + ")";
+            lblSpec.Text += deal.IdSpecNavigation.SurnameSpec + " " + deal.IdSpecNavigation.NameSpec + "(id: " + deal.IdSpecNavigation.IdSpec + ")";
             lblDate.Text += DateTime.Parse(deal.DataDeal.ToString()).ToShortDateString();
             Label lblAdres = new Label();
             lblAdres.Location = new Point(130, 14);
             lblAdres.Font = new Font(lblAdres.Font.Name, 11, FontStyle.Bold);
-            lblAdres.Text = deal.KadastrNomNavigation.IdAdresNavigation.Adress;
+            lblAdres.Text = deal.KadastrNomNavigation.IdAdresNavigation.City + ", " + deal.KadastrNomNavigation.IdAdresNavigation.Street +
+                ", " + deal.KadastrNomNavigation.IdAdresNavigation.HomeNom + deal.KadastrNomNavigation.IdAdresNavigation.ApartNom;
             lblAdres.Size = new Size(1000, lblAdres.Height);
             this.Controls.Add(lblAdres);
             Label lblPrice = new Label();

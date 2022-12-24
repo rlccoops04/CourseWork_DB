@@ -37,17 +37,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnReg = new System.Windows.Forms.Button();
             this.tbLogin = new System.Windows.Forms.TextBox();
-            this.tbName = new System.Windows.Forms.TextBox();
+            this.tbSurname = new System.Windows.Forms.TextBox();
             this.tbNomTel = new System.Windows.Forms.TextBox();
             this.tbPassport = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.rbSpecialist = new System.Windows.Forms.RadioButton();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // rbOWNER
             // 
             this.rbOWNER.AutoSize = true;
-            this.rbOWNER.Location = new System.Drawing.Point(360, 322);
+            this.rbOWNER.Location = new System.Drawing.Point(360, 373);
             this.rbOWNER.Name = "rbOWNER";
             this.rbOWNER.Size = new System.Drawing.Size(100, 24);
             this.rbOWNER.TabIndex = 25;
@@ -58,7 +60,7 @@
             // rbBuyer
             // 
             this.rbBuyer.AutoSize = true;
-            this.rbBuyer.Location = new System.Drawing.Point(360, 292);
+            this.rbBuyer.Location = new System.Drawing.Point(360, 343);
             this.rbBuyer.Name = "rbBuyer";
             this.rbBuyer.Size = new System.Drawing.Size(111, 24);
             this.rbBuyer.TabIndex = 24;
@@ -70,7 +72,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(360, 236);
+            this.label5.Location = new System.Drawing.Point(360, 287);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(127, 20);
             this.label5.TabIndex = 23;
@@ -80,7 +82,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(360, 183);
+            this.label4.Location = new System.Drawing.Point(360, 234);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 20);
             this.label4.TabIndex = 22;
@@ -92,9 +94,9 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Location = new System.Drawing.Point(360, 130);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(118, 20);
+            this.label3.Size = new System.Drawing.Size(73, 20);
             this.label3.TabIndex = 21;
-            this.label3.Text = "Фамилия и имя";
+            this.label3.Text = "Фамилия";
             // 
             // label2
             // 
@@ -117,7 +119,7 @@
             // 
             // btnReg
             // 
-            this.btnReg.Location = new System.Drawing.Point(357, 382);
+            this.btnReg.Location = new System.Drawing.Point(357, 433);
             this.btnReg.Name = "btnReg";
             this.btnReg.Size = new System.Drawing.Size(193, 46);
             this.btnReg.TabIndex = 18;
@@ -132,23 +134,23 @@
             this.tbLogin.Size = new System.Drawing.Size(196, 27);
             this.tbLogin.TabIndex = 17;
             // 
-            // tbName
+            // tbSurname
             // 
-            this.tbName.Location = new System.Drawing.Point(357, 153);
-            this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(196, 27);
-            this.tbName.TabIndex = 16;
+            this.tbSurname.Location = new System.Drawing.Point(357, 153);
+            this.tbSurname.Name = "tbSurname";
+            this.tbSurname.Size = new System.Drawing.Size(196, 27);
+            this.tbSurname.TabIndex = 16;
             // 
             // tbNomTel
             // 
-            this.tbNomTel.Location = new System.Drawing.Point(357, 259);
+            this.tbNomTel.Location = new System.Drawing.Point(357, 310);
             this.tbNomTel.Name = "tbNomTel";
             this.tbNomTel.Size = new System.Drawing.Size(196, 27);
             this.tbNomTel.TabIndex = 15;
             // 
             // tbPassport
             // 
-            this.tbPassport.Location = new System.Drawing.Point(357, 206);
+            this.tbPassport.Location = new System.Drawing.Point(357, 257);
             this.tbPassport.Name = "tbPassport";
             this.tbPassport.Size = new System.Drawing.Size(196, 27);
             this.tbPassport.TabIndex = 14;
@@ -163,7 +165,7 @@
             // rbSpecialist
             // 
             this.rbSpecialist.AutoSize = true;
-            this.rbSpecialist.Location = new System.Drawing.Point(360, 352);
+            this.rbSpecialist.Location = new System.Drawing.Point(360, 403);
             this.rbSpecialist.Name = "rbSpecialist";
             this.rbSpecialist.Size = new System.Drawing.Size(112, 24);
             this.rbSpecialist.TabIndex = 26;
@@ -171,11 +173,30 @@
             this.rbSpecialist.Text = "Специалист";
             this.rbSpecialist.UseVisualStyleBackColor = true;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Location = new System.Drawing.Point(360, 183);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(39, 20);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "Имя";
+            // 
+            // tbName
+            // 
+            this.tbName.Location = new System.Drawing.Point(357, 206);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(196, 27);
+            this.tbName.TabIndex = 27;
+            // 
             // UCAddNewUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.tbName);
             this.Controls.Add(this.rbSpecialist);
             this.Controls.Add(this.rbOWNER);
             this.Controls.Add(this.rbBuyer);
@@ -186,7 +207,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnReg);
             this.Controls.Add(this.tbLogin);
-            this.Controls.Add(this.tbName);
+            this.Controls.Add(this.tbSurname);
             this.Controls.Add(this.tbNomTel);
             this.Controls.Add(this.tbPassport);
             this.Controls.Add(this.tbPassword);
@@ -208,10 +229,12 @@
         private Label label1;
         private Button btnReg;
         private TextBox tbLogin;
-        private TextBox tbName;
+        private TextBox tbSurname;
         private TextBox tbNomTel;
         private TextBox tbPassport;
         private TextBox tbPassword;
         private RadioButton rbSpecialist;
+        private Label label6;
+        private TextBox tbName;
     }
 }

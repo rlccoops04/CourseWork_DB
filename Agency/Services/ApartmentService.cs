@@ -31,7 +31,7 @@ namespace Agency.Services
         {
             return GetApartments().Any(x => x.KadastrNom == KadastrNom);
         }
-        public bool Add(string KadastrNom, string Adress, double LiveSpace, 
+        public bool Add(string KadastrNom, string City, string Street,string HomeNom, string ApartNom, double LiveSpace, 
             double GeneralSpace, int CountRooms, int Floor, string TypePostr, 
             int YearPostr, string Metro, string Furniture, decimal Price, int ID_owner)
         {
@@ -41,7 +41,10 @@ namespace Agency.Services
             }
             Adre adres = new Adre()
             {
-                Adress = Adress,
+                City = City,
+                Street = Street,
+                HomeNom = HomeNom,
+                ApartNom = ApartNom,
                 Metro = Metro
             };
             context.Adres.Add(adres);
@@ -82,7 +85,7 @@ namespace Agency.Services
                 {
                     apartments.Add(apartment);
                 }
-            }
+            }   
             return apartments;
         }
         public bool Remove(Apartment apartment)

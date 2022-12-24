@@ -7,7 +7,13 @@ public partial class Adre
 {
     public int IdAdres { get; set; }
 
-    public string Adress { get; set; } = null!;
+    public string City { get; set; } = null!;
+
+    public string Street { get; set; } = null!;
+
+    public string HomeNom { get; set; } = null!;
+
+    public string ApartNom { get; set; } = null!;
 
     public string Metro { get; set; } = null!;
 

@@ -30,12 +30,13 @@
         {
             this.cbRole = new System.Windows.Forms.ComboBox();
             this.tbID = new System.Windows.Forms.TextBox();
-            this.tbFio = new System.Windows.Forms.TextBox();
+            this.tbName = new System.Windows.Forms.TextBox();
             this.tbPassport = new System.Windows.Forms.TextBox();
             this.tbNomTel = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.tbLogin = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tbSurname = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // cbRole
@@ -53,20 +54,20 @@
             // tbID
             // 
             this.tbID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbID.Location = new System.Drawing.Point(186, 3);
+            this.tbID.Location = new System.Drawing.Point(23, 0);
             this.tbID.Name = "tbID";
             this.tbID.PlaceholderText = "Идентификатор";
             this.tbID.Size = new System.Drawing.Size(157, 27);
             this.tbID.TabIndex = 1;
             // 
-            // tbFio
+            // tbName
             // 
-            this.tbFio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbFio.Location = new System.Drawing.Point(186, 36);
-            this.tbFio.Name = "tbFio";
-            this.tbFio.PlaceholderText = "ФИО";
-            this.tbFio.Size = new System.Drawing.Size(157, 27);
-            this.tbFio.TabIndex = 2;
+            this.tbName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbName.Location = new System.Drawing.Point(186, 36);
+            this.tbName.Name = "tbName";
+            this.tbName.PlaceholderText = "Имя";
+            this.tbName.Size = new System.Drawing.Size(157, 27);
+            this.tbName.TabIndex = 2;
             // 
             // tbPassport
             // 
@@ -113,17 +114,27 @@
             this.panel1.Size = new System.Drawing.Size(910, 474);
             this.panel1.TabIndex = 7;
             // 
+            // tbSurname
+            // 
+            this.tbSurname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbSurname.Location = new System.Drawing.Point(186, 0);
+            this.tbSurname.Name = "tbSurname";
+            this.tbSurname.PlaceholderText = "Фамилия";
+            this.tbSurname.Size = new System.Drawing.Size(157, 27);
+            this.tbSurname.TabIndex = 8;
+            // 
             // UCUsersList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Controls.Add(this.tbSurname);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tbLogin);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.tbNomTel);
             this.Controls.Add(this.tbPassport);
-            this.Controls.Add(this.tbFio);
+            this.Controls.Add(this.tbName);
             this.Controls.Add(this.tbID);
             this.Controls.Add(this.cbRole);
             this.Name = "UCUsersList";
@@ -138,11 +149,12 @@
 
         private ComboBox cbRole;
         private TextBox tbID;
-        private TextBox tbFio;
+        private TextBox tbName;
         private TextBox tbPassport;
         private TextBox tbNomTel;
         private Button btnSearch;
         private TextBox tbLogin;
         private Panel panel1;
+        private TextBox tbSurname;
     }
 }

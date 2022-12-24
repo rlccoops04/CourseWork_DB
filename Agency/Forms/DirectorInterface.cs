@@ -39,27 +39,30 @@ namespace Agency.Forms.User_Controls
         }
         private void AddControl(UserControl userControl)
         {
-            DisposeAll();
             userControl.Location = new Point(0, 43);
             Controls.Add(userControl);
         }
         private void Apartments_Click(object sender, EventArgs e)
         {
+            DisposeAll();
             ucAparts = new UCApartmentsDir();
             AddControl(ucAparts);
         }
         private void Users_Click(object sender, EventArgs e)
         {
+            DisposeAll();
             ucUsers = new UCUsersDir();
             AddControl(ucUsers);
         }
         private void Requests_Click(object sender, EventArgs e)
         {
+            DisposeAll();
             ucReqs = new UCRequestsDir();
             AddControl(ucReqs);
         }
         private void Deals_Click(object sender, EventArgs e)
         {
+            DisposeAll();
             ucDeals = new UCDealsDir();
             AddControl(ucDeals);
         }

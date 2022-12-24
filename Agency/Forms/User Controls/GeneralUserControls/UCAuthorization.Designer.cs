@@ -32,7 +32,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnRegistration = new System.Windows.Forms.Button();
             this.btnEnter = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.tbLogin = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -77,18 +76,6 @@
             this.btnEnter.UseVisualStyleBackColor = true;
             this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label1.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label1.Location = new System.Drawing.Point(75, 113);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 20);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Забыли пароль?";
-            // 
             // tbLogin
             // 
             this.tbLogin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -116,7 +103,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnRegistration);
             this.Controls.Add(this.btnEnter);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.tbLogin);
             this.Controls.Add(this.tbPassword);
             this.Name = "UCAuthorization";
@@ -132,7 +118,6 @@
         private Label label2;
         private Button btnRegistration;
         private Button btnEnter;
-        private Label label1;
         private TextBox tbLogin;
         private TextBox tbPassword;
     }

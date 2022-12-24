@@ -47,9 +47,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbKadastrNom = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.tbAdress = new System.Windows.Forms.TextBox();
+            this.tbCity = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.lblResult = new System.Windows.Forms.Label();
+            this.tbApartNom = new System.Windows.Forms.TextBox();
+            this.tbHomeNom = new System.Windows.Forms.TextBox();
+            this.tbStreet = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // tbYear
@@ -122,7 +125,7 @@
             // 
             this.cbFurniture.AutoSize = true;
             this.cbFurniture.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cbFurniture.Location = new System.Drawing.Point(279, 399);
+            this.cbFurniture.Location = new System.Drawing.Point(279, 418);
             this.cbFurniture.Name = "cbFurniture";
             this.cbFurniture.Size = new System.Drawing.Size(108, 32);
             this.cbFurniture.TabIndex = 48;
@@ -133,7 +136,7 @@
             // 
             this.cbMetro.AutoSize = true;
             this.cbMetro.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cbMetro.Location = new System.Drawing.Point(456, 399);
+            this.cbMetro.Location = new System.Drawing.Point(456, 418);
             this.cbMetro.Name = "cbMetro";
             this.cbMetro.Size = new System.Drawing.Size(96, 32);
             this.cbMetro.TabIndex = 47;
@@ -234,14 +237,14 @@
             this.label8.TabIndex = 56;
             this.label8.Text = "Кадастр. номер";
             // 
-            // tbAdress
+            // tbCity
             // 
-            this.tbAdress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbAdress.Location = new System.Drawing.Point(279, 347);
-            this.tbAdress.Name = "tbAdress";
-            this.tbAdress.PlaceholderText = "Город, улица, дом, квартира";
-            this.tbAdress.Size = new System.Drawing.Size(322, 27);
-            this.tbAdress.TabIndex = 59;
+            this.tbCity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbCity.Location = new System.Drawing.Point(279, 347);
+            this.tbCity.Name = "tbCity";
+            this.tbCity.PlaceholderText = "Город";
+            this.tbCity.Size = new System.Drawing.Size(150, 27);
+            this.tbCity.TabIndex = 59;
             // 
             // label9
             // 
@@ -261,13 +264,43 @@
             this.lblResult.Size = new System.Drawing.Size(0, 20);
             this.lblResult.TabIndex = 60;
             // 
+            // tbApartNom
+            // 
+            this.tbApartNom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbApartNom.Location = new System.Drawing.Point(452, 380);
+            this.tbApartNom.Name = "tbApartNom";
+            this.tbApartNom.PlaceholderText = "Квартира";
+            this.tbApartNom.Size = new System.Drawing.Size(149, 27);
+            this.tbApartNom.TabIndex = 61;
+            // 
+            // tbHomeNom
+            // 
+            this.tbHomeNom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbHomeNom.Location = new System.Drawing.Point(279, 380);
+            this.tbHomeNom.Name = "tbHomeNom";
+            this.tbHomeNom.PlaceholderText = "Дом";
+            this.tbHomeNom.Size = new System.Drawing.Size(150, 27);
+            this.tbHomeNom.TabIndex = 62;
+            // 
+            // tbStreet
+            // 
+            this.tbStreet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbStreet.Location = new System.Drawing.Point(452, 347);
+            this.tbStreet.Name = "tbStreet";
+            this.tbStreet.PlaceholderText = "Улица";
+            this.tbStreet.Size = new System.Drawing.Size(149, 27);
+            this.tbStreet.TabIndex = 63;
+            // 
             // UCAddApartment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Controls.Add(this.tbStreet);
+            this.Controls.Add(this.tbHomeNom);
+            this.Controls.Add(this.tbApartNom);
             this.Controls.Add(this.lblResult);
-            this.Controls.Add(this.tbAdress);
+            this.Controls.Add(this.tbCity);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.tbKadastrNom);
             this.Controls.Add(this.label8);
@@ -316,8 +349,11 @@
         private Label label1;
         private TextBox tbKadastrNom;
         private Label label8;
-        private TextBox tbAdress;
+        private TextBox tbCity;
         private Label label9;
         private Label lblResult;
+        private TextBox tbApartNom;
+        private TextBox tbHomeNom;
+        private TextBox tbStreet;
     }
 }
