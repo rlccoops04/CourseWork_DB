@@ -1,32 +1,25 @@
 ﻿using Agency.Models;
 using Agency.Services;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Agency.Forms.User_Controls
 {
     public partial class UCMyDeals : UserControl
     {
-        private int id_user;
-        private ApartmentService apartService = new();
-        private BuyerService buyerService = new();
+        private readonly int id_buyer;
+        private ApartmentService apartService;
+        private BuyerService buyerService;
         private UCApartment ucApartment;
-        public UCMyDeals(int id_user)
+        public UCMyDeals(int id_buyer)
         {
-            this.id_user = id_user;
+            this.id_buyer = id_buyer;
+            apartService = new();
+            buyerService = new();
             InitializeComponent();
         }
 
         private void UCMyDeals_Load(object sender, EventArgs e)
         {
-            var buyer = buyerService.GetBuyer(id_user);
+            var buyer = buyerService.GetBuyer(id_buyer);
             int i = 0;
             foreach (Deal deal in buyer.Deals)
             {

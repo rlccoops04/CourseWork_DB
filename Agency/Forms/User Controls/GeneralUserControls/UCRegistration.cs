@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Agency.Forms;
 using Agency.Services;
 
 namespace Agency
@@ -15,6 +16,7 @@ namespace Agency
     {
         private readonly BuyerService buyerServ = new();
         private readonly OwnerService ownerServ = new();
+        private readonly SpecialistService specServ = new();
         public UCRegistration()
         {
             InitializeComponent();
@@ -27,20 +29,33 @@ namespace Agency
                 MessageBox.Show("Заполнены не все поля", "Ошибка");
                 return;
             }
+
             if (rbBuyer.Checked)
             {
+                if (buyerServ.IsExist(tbLogin.Text) || ownerServ.IsExist(tbLogin.Text) || specServ.IsExist(tbLogin.Text))
+                {
+                    MessageBox.Show("Данный логин уже используется.", "Ошибка");
+                    return;
+                }
                 var result = buyerServ.Add(tbName.Text, tbPassport.Text, tbNomTel.Text, tbLogin.Text, tbPassword.Text);
                 if (!result)
                 {
-                    MessageBox.Show("Ошибка", "Ошибка");
+                    MessageBox.Show("Ошибка при регистрации", "Ошибка");
                     return;
                 }
                 MessageBox.Show("Покупатель успешно зарегистрирован");
                 this.Hide();
                 this.Parent.Show();
+                BuyerInterface buyerInterface = new BuyerInterface(buyerServ.GetBuyer(tbLogin.Text).IdBuyer);
+                buyerInterface.Show();
             }
             else if (rbOWNER.Checked)
             {
+                if (buyerServ.IsExist(tbLogin.Text) || ownerServ.IsExist(tbLogin.Text) || specServ.IsExist(tbLogin.Text))
+                {
+                    MessageBox.Show("Данный логин уже используется.", "Ошибка");
+                    return;
+                }
                 var result = ownerServ.Add(tbName.Text, tbPassport.Text, tbNomTel.Text, tbLogin.Text, tbPassword.Text);
                 if (!result)
                 {
@@ -49,7 +64,9 @@ namespace Agency
                 }
                 MessageBox.Show("Продавец успешно зарегистрирован");
                 this.Hide();
-                this.Parent.Show();
+                this.Parent.Hide();
+                OwnerInterface ownerInterface = new OwnerInterface(ownerServ.GetOwner(tbLogin.Text).IdOwner);
+                ownerInterface.Show();
             }
             else
             {

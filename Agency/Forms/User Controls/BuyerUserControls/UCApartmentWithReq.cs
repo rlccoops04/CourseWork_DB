@@ -1,29 +1,20 @@
 ﻿using Agency.Models;
 using Agency.Services;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Agency.Forms.User_Controls
 {
     public partial class UCApartmentWithReq : UserControl
     {
+        private readonly int id_buyer;
         private Apartment apartment;
-        private int id_user;
-        private RequestService reqService = new();
-        public UCApartmentWithReq(Apartment apartment, int id_user)
+        private RequestService reqService;
+        public UCApartmentWithReq(Apartment apartment, int id_buyer)
         {
-            this.id_user = id_user;
+            this.id_buyer = id_buyer;
             this.apartment = apartment;
+            reqService = new();
             InitializeComponent();
         }
-
         private void UCApartmentWithReq_Load(object sender, EventArgs e)
         {
             lblMainInfo.Text += apartment.CountRooms + "-к. квартира, " + apartment.GeneralSpace + " м2, " + apartment.NumFloor + " эт.";
@@ -35,10 +26,9 @@ namespace Agency.Forms.User_Controls
             lblMetro.Text += apartment.IdAdresNavigation.Metro;
             lblFurniture.Text += apartment.Furniture;
         }
-
-        private void btnAddReq_Click(object sender, EventArgs e)
+        private void AddRequest_Click(object sender, EventArgs e)
         {
-            reqService.Add(apartment.KadastrNom, id_user);
+            reqService.Add(apartment.KadastrNom, id_buyer);
             btnAddReq.Enabled = false;
         }
     }

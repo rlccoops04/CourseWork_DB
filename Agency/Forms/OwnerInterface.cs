@@ -1,110 +1,67 @@
 ﻿using Agency.Forms.User_Controls;
-using Agency.Models;
-using Microsoft.VisualBasic.ApplicationServices;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Agency.Forms
 {
     public partial class OwnerInterface : Form
     {
-        private int id_user;
-        private UCProfile ucProfile;
-        private UCKatalog ucKatalog;
-        private UCSearchApartments ucSearchApartments;
-        private UCMyAparts ucMyAparts;
-        private UCAddApartment ucAddApartment;
-        private UCRequests ucRequests;
-        private UCAddRequest ucAddRequest;
-        private UCMyDeals ucDeals;
-
-        public OwnerInterface(int id_user)
+        private readonly int id_owner;
+        private UserControl ucProfile, ucSearchApartments, ucMyAparts, ucAddApartment;
+        public OwnerInterface(int id_owner)
         {
-            this.id_user = id_user;
+            this.id_owner = id_owner;
             InitializeComponent();
         }
         private void OwnerInterface_Load(object sender, EventArgs e)
         {
-            HideAll();
-            ucSearchApartments = new();
-            ucSearchApartments.Location = new Point(0, 43);
-            this.Controls.Add(ucSearchApartments);
+            ucSearchApartments = new UCSearchApartments();
+            AddControl(ucSearchApartments);
         }
-        private void HideAll()
+        private void DisposeAll()
         {
-            if (this.Controls.Contains(ucProfile))
+            if (Controls.Contains(ucProfile))
             {
-                ucProfile.Hide();
+                ucProfile.Dispose();
             }
-            if (this.Controls.Contains(ucKatalog))
+            if (Controls.Contains(ucSearchApartments))
             {
-                ucKatalog.Hide();
+                ucSearchApartments.Dispose();
             }
-            if (this.Controls.Contains(ucSearchApartments))
+            if (Controls.Contains(ucMyAparts))
             {
-                ucSearchApartments.Hide();
+                ucMyAparts.Dispose();
             }
-            if (this.Controls.Contains(ucMyAparts))
+            if (Controls.Contains(ucAddApartment))
             {
-                ucMyAparts.Hide();
-            }
-            if (this.Controls.Contains(ucAddApartment))
-            {
-                ucAddApartment.Hide();
-            }
-            if (this.Controls.Contains(ucRequests))
-            {
-                ucRequests.Hide();
-            }
-            if (this.Controls.Contains(ucAddRequest))
-            {
-                ucAddRequest.Hide();
-            }
-            if (this.Controls.Contains(ucDeals))
-            {
-                ucDeals.Hide();
+                ucAddApartment.Dispose();
             }
         }
-        private void lblAparts_Click(object sender, EventArgs e)
+        private void AddControl(UserControl userControl)
         {
-            HideAll();
-            ucSearchApartments = new();
-            ucSearchApartments.Location = new Point(0, 43);
-            this.Controls.Add(ucSearchApartments);
+            DisposeAll();
+            userControl.Location = new Point(0, 43);
+            this.Controls.Add(userControl);
         }
-
-        private void lblMyAparts_Click(object sender, EventArgs e)
+        private void ShowAparts_Click(object sender, EventArgs e)
         {
-            HideAll();
-            ucMyAparts = new(id_user);
-            ucMyAparts.Location = new Point(0, 43);
-            this.Controls.Add(ucMyAparts);
+            ucSearchApartments = new UCSearchApartments();
+            AddControl(ucSearchApartments);
         }
-
-        private void lblAddApart_Click(object sender, EventArgs e)
+        private void ShowMyAparts_Click(object sender, EventArgs e)
         {
-            HideAll();
-            ucAddApartment = new(id_user);
-            ucAddApartment.Location = new Point(0, 43);
-            this.Controls.Add(ucAddApartment);
+            ucMyAparts = new UCMyAparts(id_owner);
+            AddControl(ucMyAparts);
         }
-
-        private void lblMyProfile_Click(object sender, EventArgs e)
+        private void AddApart_Click(object sender, EventArgs e)
         {
-            HideAll();
-            ucProfile = new(id_user, "Owner");
-            ucProfile.Location = new Point(0, 43);
-            this.Controls.Add(ucProfile);
+            ucAddApartment = new UCAddApartment(id_owner);
+            AddControl(ucAddApartment);
         }
-
-        private void lblExit_Click(object sender, EventArgs e)
+        private void MyProfile_Click(object sender, EventArgs e)
+        { 
+            ucProfile = new UCProfile(id_owner, "Owner");
+            AddControl(ucProfile);
+        }
+        private void Exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }

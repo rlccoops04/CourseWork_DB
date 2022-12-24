@@ -28,88 +28,133 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnUsers = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.btnReqs = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DirectorInterface));
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblAparts = new System.Windows.Forms.Label();
+            this.lblDeals = new System.Windows.Forms.Label();
+            this.lblReqs = new System.Windows.Forms.Label();
+            this.lblUsers = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblExit = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnUsers
+            // panel1
             // 
-            this.btnUsers.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnUsers.Location = new System.Drawing.Point(12, 118);
-            this.btnUsers.Name = "btnUsers";
-            this.btnUsers.Size = new System.Drawing.Size(150, 55);
-            this.btnUsers.TabIndex = 9;
-            this.btnUsers.Text = "Пользователи";
-            this.btnUsers.UseVisualStyleBackColor = true;
-            this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
+            this.panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.panel1.Controls.Add(this.lblAparts);
+            this.panel1.Controls.Add(this.lblDeals);
+            this.panel1.Controls.Add(this.lblReqs);
+            this.panel1.Controls.Add(this.lblUsers);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.lblExit);
+            this.panel1.Location = new System.Drawing.Point(-5, -3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(920, 50);
+            this.panel1.TabIndex = 22;
             // 
-            // button3
+            // lblAparts
             // 
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button3.Location = new System.Drawing.Point(12, 240);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(150, 55);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "Сделки";
-            this.button3.UseVisualStyleBackColor = true;
+            this.lblAparts.AutoSize = true;
+            this.lblAparts.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblAparts.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblAparts.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblAparts.Location = new System.Drawing.Point(291, 12);
+            this.lblAparts.Name = "lblAparts";
+            this.lblAparts.Size = new System.Drawing.Size(88, 23);
+            this.lblAparts.TabIndex = 9;
+            this.lblAparts.Text = "Квартиры";
+            this.lblAparts.Click += new System.EventHandler(this.Apartments_Click);
             // 
-            // button6
+            // lblDeals
             // 
-            this.button6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button6.Location = new System.Drawing.Point(12, 301);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(150, 55);
-            this.button6.TabIndex = 15;
-            this.button6.Text = "Квартиры";
-            this.button6.UseVisualStyleBackColor = true;
+            this.lblDeals.AutoSize = true;
+            this.lblDeals.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblDeals.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblDeals.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblDeals.Location = new System.Drawing.Point(721, 12);
+            this.lblDeals.Name = "lblDeals";
+            this.lblDeals.Size = new System.Drawing.Size(69, 23);
+            this.lblDeals.TabIndex = 7;
+            this.lblDeals.Text = "Сделки";
+            this.lblDeals.Click += new System.EventHandler(this.Deals_Click);
             // 
-            // btnReqs
+            // lblReqs
             // 
-            this.btnReqs.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnReqs.Location = new System.Drawing.Point(12, 179);
-            this.btnReqs.Name = "btnReqs";
-            this.btnReqs.Size = new System.Drawing.Size(150, 55);
-            this.btnReqs.TabIndex = 18;
-            this.btnReqs.Text = "Запросы";
-            this.btnReqs.UseVisualStyleBackColor = true;
-            this.btnReqs.Click += new System.EventHandler(this.btnReqs_Click);
+            this.lblReqs.AutoSize = true;
+            this.lblReqs.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblReqs.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblReqs.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblReqs.Location = new System.Drawing.Point(600, 12);
+            this.lblReqs.Name = "lblReqs";
+            this.lblReqs.Size = new System.Drawing.Size(65, 23);
+            this.lblReqs.TabIndex = 6;
+            this.lblReqs.Text = "Заявки";
+            this.lblReqs.Click += new System.EventHandler(this.Requests_Click);
             // 
-            // btnExit
+            // lblUsers
             // 
-            this.btnExit.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnExit.Location = new System.Drawing.Point(12, 362);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(150, 55);
-            this.btnExit.TabIndex = 19;
-            this.btnExit.Text = "Выход";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.lblUsers.AutoSize = true;
+            this.lblUsers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblUsers.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUsers.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblUsers.Location = new System.Drawing.Point(426, 12);
+            this.lblUsers.Name = "lblUsers";
+            this.lblUsers.Size = new System.Drawing.Size(124, 23);
+            this.lblUsers.TabIndex = 5;
+            this.lblUsers.Text = "Пользователи";
+            this.lblUsers.Click += new System.EventHandler(this.Users_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Cambria", 22.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.Navy;
+            this.label2.Location = new System.Drawing.Point(16, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(130, 43);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Agency";
+            // 
+            // lblExit
+            // 
+            this.lblExit.AutoSize = true;
+            this.lblExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblExit.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblExit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblExit.Location = new System.Drawing.Point(832, 12);
+            this.lblExit.Name = "lblExit";
+            this.lblExit.Size = new System.Drawing.Size(62, 23);
+            this.lblExit.TabIndex = 3;
+            this.lblExit.Text = "Выход";
+            this.lblExit.Click += new System.EventHandler(this.Exit_Click);
             // 
             // DirectorInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(924, 567);
-            this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnReqs);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.btnUsers);
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ClientSize = new System.Drawing.Size(914, 609);
+            this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "DirectorInterface";
-            this.Text = "DirectorInterface";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Агенство недвижимости";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private Button btnUsers;
-        private Button button3;
-        private Button button6;
-        private Button btnReqs;
-        private Button btnExit;
+        private Panel panel1;
+        private Label lblAparts;
+        private Label lblDeals;
+        private Label lblReqs;
+        private Label lblUsers;
+        private Label label2;
+        private Label lblExit;
     }
 }

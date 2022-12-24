@@ -45,7 +45,7 @@
             "Покупатель",
             "Продавец",
             "Специалист"});
-            this.cbRole.Location = new System.Drawing.Point(457, 54);
+            this.cbRole.Location = new System.Drawing.Point(555, 35);
             this.cbRole.Name = "cbRole";
             this.cbRole.Size = new System.Drawing.Size(157, 28);
             this.cbRole.TabIndex = 0;
@@ -53,7 +53,7 @@
             // tbID
             // 
             this.tbID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbID.Location = new System.Drawing.Point(131, 22);
+            this.tbID.Location = new System.Drawing.Point(186, 3);
             this.tbID.Name = "tbID";
             this.tbID.PlaceholderText = "Идентификатор";
             this.tbID.Size = new System.Drawing.Size(157, 27);
@@ -62,7 +62,7 @@
             // tbFio
             // 
             this.tbFio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbFio.Location = new System.Drawing.Point(131, 55);
+            this.tbFio.Location = new System.Drawing.Point(186, 36);
             this.tbFio.Name = "tbFio";
             this.tbFio.PlaceholderText = "ФИО";
             this.tbFio.Size = new System.Drawing.Size(157, 27);
@@ -71,7 +71,7 @@
             // tbPassport
             // 
             this.tbPassport.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbPassport.Location = new System.Drawing.Point(294, 22);
+            this.tbPassport.Location = new System.Drawing.Point(371, 3);
             this.tbPassport.Name = "tbPassport";
             this.tbPassport.PlaceholderText = "Паспортные данные";
             this.tbPassport.Size = new System.Drawing.Size(157, 27);
@@ -80,7 +80,7 @@
             // tbNomTel
             // 
             this.tbNomTel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbNomTel.Location = new System.Drawing.Point(294, 55);
+            this.tbNomTel.Location = new System.Drawing.Point(371, 36);
             this.tbNomTel.Name = "tbNomTel";
             this.tbNomTel.PlaceholderText = "Номер телефона";
             this.tbNomTel.Size = new System.Drawing.Size(157, 27);
@@ -88,9 +88,9 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(457, 88);
+            this.btnSearch.Location = new System.Drawing.Point(734, 3);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(157, 50);
+            this.btnSearch.Size = new System.Drawing.Size(157, 60);
             this.btnSearch.TabIndex = 5;
             this.btnSearch.Text = "Найти";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -99,7 +99,7 @@
             // tbLogin
             // 
             this.tbLogin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbLogin.Location = new System.Drawing.Point(457, 22);
+            this.tbLogin.Location = new System.Drawing.Point(555, 3);
             this.tbLogin.Name = "tbLogin";
             this.tbLogin.PlaceholderText = "Логин";
             this.tbLogin.Size = new System.Drawing.Size(157, 27);
@@ -108,9 +108,9 @@
             // panel1
             // 
             this.panel1.AutoScroll = true;
-            this.panel1.Location = new System.Drawing.Point(0, 144);
+            this.panel1.Location = new System.Drawing.Point(0, 69);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(725, 336);
+            this.panel1.Size = new System.Drawing.Size(910, 474);
             this.panel1.TabIndex = 7;
             // 
             // UCUsersList
@@ -127,7 +127,7 @@
             this.Controls.Add(this.tbID);
             this.Controls.Add(this.cbRole);
             this.Name = "UCUsersList";
-            this.Size = new System.Drawing.Size(725, 480);
+            this.Size = new System.Drawing.Size(920, 570);
             this.Load += new System.EventHandler(this.UCUsersList_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

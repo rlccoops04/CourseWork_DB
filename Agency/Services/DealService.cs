@@ -63,5 +63,18 @@ namespace Agency.Services
                 return false;
             }
         }
+        public bool Remove(Deal deal)
+        {
+            try
+            {
+                context.Deals.Remove(deal);
+                context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

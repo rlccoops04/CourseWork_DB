@@ -28,15 +28,15 @@ namespace Agency.Services
         {
             return GetBuyers().FirstOrDefault(buyer => buyer.IdBuyer == id);
         }
-        public bool IsExist(string Login, string Password)
+        public bool IsExist(string Login)
         {
-            return GetBuyers().Any(x => x.LoginBuyer == Login && x.PasswordBuyer == Password);
+            return GetBuyers().Any(x => x.LoginBuyer == Login);
         }
         public bool Add(string Fio, string Passport, string NomTel, string Login, string Password)
         {
-            if (Passport.Length > 11)
+            if (GetBuyers().Any(x => x.PassportNumBuyer == Passport) || Passport.Length > 11 || 
+                GetBuyers().Any(x => x.NomTelBuyer == NomTel) || IsExist(Login))
             {
-                MessageBox.Show("Неверный ввод паспортных данных.");
                 return false;
             }
             Buyer buyer = new Buyer
@@ -54,14 +54,8 @@ namespace Agency.Services
         public bool Remove(int id)
         {
             var buyer = GetBuyer(id);
-            if (buyer == null)
-            {
-                MessageBox.Show("Покупатель не найден.");
-                return false;
-            }
             if (buyer.Deals.Count != 0 || buyer.Requests.Count != 0)
             {
-                MessageBox.Show("У покупателя найдены сделки или запросы. Удаление невозможно.");
                 return false;
             }
             context.Buyers.Remove(buyer);
@@ -77,25 +71,34 @@ namespace Agency.Services
             }
             if (option == "Номер телефона")
             {
+                if (GetBuyers().Any(x => x.NomTelBuyer == newValue))
+                {
+                    return false;
+                }
                 Buyer.NomTelBuyer = newValue;
             }
             if (option == "Логин")
             {
+                if (IsExist(newValue))
+                {
+                    return false;
+                }
                 Buyer.LoginBuyer = newValue;
             }
             if (option == "Пароль")
             {
                 Buyer.PasswordBuyer = newValue;
             }
-            try
+            if (option == "Паспорт")
             {
-                context.SaveChanges();
-                return true;
+                if (GetBuyers().Any(x => x.PassportNumBuyer == newValue) || newValue.Length > 11)
+                {
+                    return false;
+                }
+                Buyer.PassportNumBuyer = newValue;
             }
-            catch
-            {
-                return false;
-            }
+            context.SaveChanges();
+            return true;
         }
     }
 }

@@ -24,15 +24,15 @@ namespace Agency.Services
         {
             return GetOwners().FirstOrDefault(owner => owner.IdOwner == id);
         }
-        public bool IsExist(string Login, string Password)
+        public bool IsExist(string Login)
         {
-            return GetOwners().Any(x => x.LoginOwner == Login && x.PasswordOwner == Password);
+            return GetOwners().Any(x => x.LoginOwner == Login);
         }
         public bool Add(string Fio, string Passport, string NomTel, string Login, string Password)
         {
-            if (Passport.Length > 11)
+            if (GetOwners().Any(x => x.PassportNumOwner == Passport) || Passport.Length > 11 ||
+                GetOwners().Any(x => x.NomTelOwner == NomTel) || IsExist(Login)) 
             {
-                MessageBox.Show("Неверный ввод паспортных данных.");
                 return false;
             }
             Owner owner = new Owner
@@ -56,7 +56,7 @@ namespace Agency.Services
             }
             if (owner.Apartments.Count != 0)
             {
-                MessageBox.Show("У продавца остались квартиры. Удаление невозможно.");
+                return false;
             }
             context.Owners.Remove(owner);
             context.SaveChanges();
@@ -71,6 +71,10 @@ namespace Agency.Services
             }
             if (option == "Номер телефона")
             {
+                if (GetOwners().Any(x => x.NomTelOwner == newValue))
+                {
+                    return false;
+                }
                 Owner.NomTelOwner = newValue;
             }
             if (option == "Логин")
@@ -81,15 +85,16 @@ namespace Agency.Services
             {
                 Owner.PasswordOwner = newValue;
             }
-            try
+            if (option == "Паспорт")
             {
-                context.SaveChanges();
-                return true;
+                if (GetOwners().Any(x => x.PassportNumOwner == newValue) || newValue.Length > 11)
+                {
+                    return false;
+                }
+                Owner.PassportNumOwner = newValue;
             }
-            catch
-            {
-                return false;
-            }
+            context.SaveChanges();
+            return true;
         }
     }
 }

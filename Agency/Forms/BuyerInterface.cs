@@ -1,113 +1,82 @@
 ﻿using Agency.Forms.User_Controls;
-using Agency.Models;
-using Agency.Services;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Agency
 {
     public partial class BuyerInterface : Form
     {
-        private int id_user;
-        private UCProfile ucProfile;
-        private UCKatalog ucKatalog;
-        private UCSearchApartments ucSearchApartments;
-        private UCRequests ucRequests;
-        private UCAddRequest ucAddRequest;
-        private UCMyDeals ucDeals;
-        public BuyerInterface(int id_user)
+        private int id_buyer;
+        private UserControl ucProfile, ucSearchApartments, ucRequests, ucAddRequest, ucDeals;
+        public BuyerInterface(int id_buyer)
         {
-            this.id_user = id_user;
+            this.id_buyer = id_buyer;
             InitializeComponent();
         }
 
         private void BuyerInterface_Load(object sender, EventArgs e)
         {
-            HideAll();
-            ucSearchApartments = new();
-            ucSearchApartments.Location = new Point(0, 43);
-            this.Controls.Add(ucSearchApartments);
+            ucSearchApartments = new UCSearchApartments();
+            AddControl(ucSearchApartments);
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-        private void HideAll()
+        private void DisposeAll()
         {
             if (this.Controls.Contains(ucProfile))
             {
-                ucProfile.Hide();
-            }
-            if (this.Controls.Contains(ucKatalog))
-            {
-                ucKatalog.Hide();
+                ucProfile.Dispose();
             }
             if (this.Controls.Contains(ucSearchApartments))
             {
-                ucSearchApartments.Hide();
+                ucSearchApartments.Dispose();
             }
             if (this.Controls.Contains(ucRequests))
             {
-                ucRequests.Hide();
+                ucRequests.Dispose();
             }
             if (this.Controls.Contains(ucAddRequest))
             {
-                ucAddRequest.Hide();
+                ucAddRequest.Dispose();
             }
             if (this.Controls.Contains(ucDeals))
             {
-                ucDeals.Hide();
+                ucDeals.Dispose();
             }
         }
-        private void lblProfile_Click(object sender, EventArgs e)
+        private void AddControl(UserControl userControl)
         {
-            HideAll();
-            ucProfile = new(id_user, "Buyer");
-            ucProfile.Location = new Point(0, 43);
-            this.Controls.Add(ucProfile);
+            DisposeAll();
+            userControl.Location = new Point(0, 43);
+            Controls.Add(userControl);
         }
-
-        private void lblAparts_Click(object sender, EventArgs e)
+        private void ShowAparts_Click(object sender, EventArgs e)
         {
-            HideAll();
-            ucSearchApartments = new();
-            ucSearchApartments.Location = new Point(0, 43);
-            this.Controls.Add(ucSearchApartments);
+            ucSearchApartments = new UCSearchApartments();
+            AddControl(ucSearchApartments);
         }
-
-        private void lblMyReqs_Click(object sender, EventArgs e)
+        private void MyProfile_Click(object sender, EventArgs e)
         {
-            HideAll();
-            ucRequests = new(id_user);
-            ucRequests.Location = new Point(0, 43);
-            this.Controls.Add(ucRequests);
+            ucProfile = new UCProfile(id_buyer, "Buyer");
+            AddControl(ucProfile);
         }
-
-        private void lblAddReq_Click(object sender, EventArgs e)
+        private void ShowMyDeals_Click(object sender, EventArgs e)
         {
-            HideAll();
-            ucAddRequest = new(id_user);
-            ucAddRequest.Location = new Point(0, 43);
-            this.Controls.Add(ucAddRequest);
+            ucDeals = new UCMyDeals(id_buyer);
+            AddControl(ucDeals);
         }
-
-        private void lblMyDeals_Click(object sender, EventArgs e)
+        private void AddRequest_Click(object sender, EventArgs e)
         {
-            HideAll();
-            ucDeals = new(id_user);
-            ucDeals.Location = new Point(0, 43);
-            this.Controls.Add(ucDeals);
+            ucAddRequest = new UCAddRequest(id_buyer);
+            AddControl(ucAddRequest);
         }
-
-        private void lblExit_Click(object sender, EventArgs e)
+        private void ShowMyRequests_Click(object sender, EventArgs e)
+        {
+            ucRequests = new UCRequests(id_buyer);
+            AddControl(ucRequests);
+        }
+        private void Exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }

@@ -1,14 +1,5 @@
 ﻿using Agency.Models;
 using Agency.Services;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Agency
 {
@@ -16,11 +7,11 @@ namespace Agency
     {
         private Request request;
         private UCApartment ucApartment;
-        private ApartmentService apartService = new();
-        private RequestService reqService = new();
+        private RequestService reqService;
         public UCRequest(Request request)
         {
             this.request = request;
+            reqService = new();
             InitializeComponent();
         }
 
@@ -30,13 +21,12 @@ namespace Agency
             lblReqID.Text += request.IdReq.ToString();
             ucApartment = new(request.KadastrNomNavigation);
             ucApartment.Location = new Point(0, 38);
-            this.Controls.Add(ucApartment);
+            Controls.Add(ucApartment);
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void RemoveRequest_Click(object sender, EventArgs e)
         {
             reqService.Remove(request);
-            button1.Enabled = false;
+            btnRemoveRequest.Enabled = false;
         }
     }
 }

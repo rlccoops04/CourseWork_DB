@@ -70,17 +70,39 @@ namespace Agency
 
         private void btnChange_Click(object sender, EventArgs e)
         {
+            if (cbOption.Text == "Логин")
+            {
+                if (buyerService.IsExist(tbNewValue.Text) || ownerService.IsExist(tbNewValue.Text) || specService.IsExist(tbNewValue.Text))
+                {
+                    MessageBox.Show("Данный логин уже используется.", "Ошибка");
+                    return;
+                }
+            }
             if (role == "Buyer")
             {
-                buyerService.Change(id_user, tbNewValue.Text, cbOption.Text);
+                if (!buyerService.Change(id_user, tbNewValue.Text, cbOption.Text))
+                {
+                    MessageBox.Show("Ошибка ввода");
+                    return;
+                }
             }
             if (role == "Owner")
             {
                 ownerService.Change(id_user, tbNewValue.Text, cbOption.Text);
+                if (!ownerService.Change(id_user, tbNewValue.Text, cbOption.Text))
+                {
+                    MessageBox.Show("Ошибка ввода");
+                    return;
+                }
             }
             if (role == "Spec")
             {
                 specService.Change(id_user, tbNewValue.Text, cbOption.Text);
+                if (!specService.Change(id_user, tbNewValue.Text, cbOption.Text))
+                {
+                    MessageBox.Show("Ошибка ввода");
+                    return;
+                }
             }
             MessageBox.Show("Данные успешно изменены");
         }

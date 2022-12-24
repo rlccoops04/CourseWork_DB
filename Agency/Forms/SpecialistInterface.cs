@@ -1,87 +1,69 @@
 ﻿using Agency.Forms.User_Controls;
-using Agency.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Agency
 {
     public partial class SpecialistInterface : Form
     {
-        private UCProfile ucProfile;
-        private UCSpecialistDeals ucDeals;
-        private UCSpecialistRequests ucReqs;
-        private UCSearchApartments ucSearchAparts;
-        private int id_spec;
+        private readonly int id_spec;
+        private UserControl ucProfile, ucDeals, ucReqs, ucSearchAparts;
         public SpecialistInterface(int id_spec)
         {
             this.id_spec = id_spec;
             InitializeComponent();
         }
-        private void HideAll()
+        private void DisposeAll()
         {
             if (this.Controls.Contains(ucProfile))
             {
-                ucProfile.Hide();
+                ucProfile.Dispose();
             }
             if (this.Controls.Contains(ucDeals))
             {
-                ucDeals.Hide();
+                ucDeals.Dispose();
             }
             if (this.Controls.Contains(ucReqs))
             {
-                ucReqs.Hide();
+                ucReqs.Dispose();
             }
             if (this.Controls.Contains(ucSearchAparts))
             {
-                ucSearchAparts.Hide();
+                ucSearchAparts.Dispose();
             }
         }
-        private void lblMyProfile_Click(object sender, EventArgs e)
+        private void AddControl(UserControl userControl)
         {
-            HideAll();
-            ucProfile = new(id_spec, "Spec");
-            ucProfile.Location = new Point(0, 43);
-            this.Controls.Add(ucProfile);
+            DisposeAll();
+            userControl.Location = new Point(0, 43);
+            Controls.Add(userControl);
         }
-        private void lblMyDeals_Click(object sender, EventArgs e)
-        {
-            HideAll();
-            ucDeals = new(id_spec);
-            ucDeals.Location = new Point(0, 43);
-            this.Controls.Add(ucDeals);
-        }
-        private void lblReqs_Click(object sender, EventArgs e)
-        {
-            HideAll();
-            ucReqs = new(id_spec);
-            ucReqs.Location = new Point(0, 43);
-            this.Controls.Add(ucReqs);
-        }
-        private void lblAparts_Click(object sender, EventArgs e)
-        {
-            HideAll();
-            ucSearchAparts = new();
-            ucSearchAparts.Location = new Point(0, 43);
-            this.Controls.Add(ucSearchAparts);
-        }
-        private void lblExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void SpecialistInterface_Load(object sender, EventArgs e)
         {
-            HideAll();
-            ucSearchAparts = new();
-            ucSearchAparts.Location = new Point(0, 43);
-            this.Controls.Add(ucSearchAparts);
+            ucSearchAparts = new UCSearchApartments();
+            AddControl(ucSearchAparts);
+        }
+        private void ShowAparts_Click(object sender, EventArgs e)
+        {
+            ucSearchAparts = new UCSearchApartments();
+            AddControl(ucSearchAparts);
+        }
+        private void ShowRequests_Click(object sender, EventArgs e)
+        {
+            ucReqs = new UCSpecialistRequests(id_spec);
+            AddControl(ucReqs);
+        }
+        private void ShowMyDeals_Click(object sender, EventArgs e)
+        {
+            ucDeals = new UCSpecialistDeals(id_spec);
+            AddControl(ucDeals);
+        }
+        private void MyProfile_Click(object sender, EventArgs e)
+        {
+            ucProfile = new UCProfile(id_spec, "Spec");
+            AddControl(ucProfile);
+        }
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

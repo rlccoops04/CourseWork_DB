@@ -52,21 +52,21 @@ namespace Agency.Forms.User_Controls.DirectorUserControls
                 ucProfile = new(buyer.IdBuyer, "Buyer");
                 ucProfile.Location = new Point(10, i);
                 panel1.Controls.Add(ucProfile);
-                i += 260;
+                i += 343;
             }
             foreach (Owner owner in owners)
             {
                 ucProfile = new(owner.IdOwner, "Owner");
                 ucProfile.Location = new Point(10, i);
                 panel1.Controls.Add(ucProfile);
-                i += 260;
+                i += 343;
             }
             foreach (Specialist specialist in specialists)
             {
                 ucProfile = new(specialist.IdSpec, "Spec");
                 ucProfile.Location = new Point(10, i);
                 panel1.Controls.Add(ucProfile);
-                i += 260;
+                i += 343;
             }
         }
         private void btnSearch_Click(object sender, EventArgs e)

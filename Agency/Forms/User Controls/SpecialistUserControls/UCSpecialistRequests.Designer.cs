@@ -60,7 +60,7 @@
             this.Controls.Add(this.panelReqs);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "UCSpecialistRequests";
-            this.Size = new System.Drawing.Size(932, 570);
+            this.Size = new System.Drawing.Size(920, 570);
             this.Load += new System.EventHandler(this.UCSpecialistRequests_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

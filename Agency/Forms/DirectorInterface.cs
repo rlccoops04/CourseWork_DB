@@ -13,35 +13,59 @@ namespace Agency.Forms.User_Controls
 {
     public partial class DirectorInterface : Form
     {
-        private UCAllUsers ucUsers;
+        private UserControl ucUsers, ucReqs, ucAparts, ucDeals;
         public DirectorInterface()
         {
             InitializeComponent();
         }
-        private void HideAll()
+        private void DisposeAll()
         {
             if (this.Controls.Contains(ucUsers))
             {
-                ucUsers.Hide();
+                ucUsers.Dispose();
+            }
+            if (this.Controls.Contains(ucReqs))
+            {
+                ucReqs.Dispose();
+            }
+            if (this.Controls.Contains(ucAparts))
+            {
+                ucAparts.Dispose();
+            }
+            if (this.Controls.Contains(ucDeals))
+            {
+                ucDeals.Dispose();
             }
         }
-
-        private void btnUsers_Click(object sender, EventArgs e)
+        private void AddControl(UserControl userControl)
         {
-            HideAll();
-            ucUsers = new();
-            ucUsers.Location = new Point(173, 12);
-            this.Controls.Add(ucUsers);
+            DisposeAll();
+            userControl.Location = new Point(0, 43);
+            Controls.Add(userControl);
         }
-
-        private void btnExit_Click(object sender, EventArgs e)
+        private void Apartments_Click(object sender, EventArgs e)
+        {
+            ucAparts = new UCApartmentsDir();
+            AddControl(ucAparts);
+        }
+        private void Users_Click(object sender, EventArgs e)
+        {
+            ucUsers = new UCUsersDir();
+            AddControl(ucUsers);
+        }
+        private void Requests_Click(object sender, EventArgs e)
+        {
+            ucReqs = new UCRequestsDir();
+            AddControl(ucReqs);
+        }
+        private void Deals_Click(object sender, EventArgs e)
+        {
+            ucDeals = new UCDealsDir();
+            AddControl(ucDeals);
+        }
+        private void Exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void btnReqs_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

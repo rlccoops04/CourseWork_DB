@@ -42,7 +42,7 @@
             "Покупатель",
             "Продавец",
             "Специалист"});
-            this.cbRole.Location = new System.Drawing.Point(245, 51);
+            this.cbRole.Location = new System.Drawing.Point(374, 42);
             this.cbRole.Name = "cbRole";
             this.cbRole.Size = new System.Drawing.Size(178, 28);
             this.cbRole.TabIndex = 0;
@@ -51,7 +51,7 @@
             // cbUser
             // 
             this.cbUser.FormattingEnabled = true;
-            this.cbUser.Location = new System.Drawing.Point(245, 119);
+            this.cbUser.Location = new System.Drawing.Point(374, 110);
             this.cbUser.Name = "cbUser";
             this.cbUser.Size = new System.Drawing.Size(178, 28);
             this.cbUser.TabIndex = 1;
@@ -60,7 +60,7 @@
             // btnRemove
             // 
             this.btnRemove.Enabled = false;
-            this.btnRemove.Location = new System.Drawing.Point(245, 169);
+            this.btnRemove.Location = new System.Drawing.Point(374, 160);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(178, 41);
             this.btnRemove.TabIndex = 2;
@@ -71,7 +71,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(245, 28);
+            this.label1.Location = new System.Drawing.Point(374, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 20);
             this.label1.TabIndex = 3;
@@ -80,7 +80,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(245, 96);
+            this.label2.Location = new System.Drawing.Point(374, 87);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 20);
             this.label2.TabIndex = 4;
@@ -90,13 +90,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.cbUser);
             this.Controls.Add(this.cbRole);
             this.Name = "UCRemoveUser";
-            this.Size = new System.Drawing.Size(725, 480);
+            this.Size = new System.Drawing.Size(920, 570);
             this.ResumeLayout(false);
             this.PerformLayout();
 

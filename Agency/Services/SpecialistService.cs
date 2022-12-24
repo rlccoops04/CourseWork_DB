@@ -26,9 +26,9 @@ namespace Agency.Services
         }
         public bool Add(string Fio, string Passport, string NomTel, string Login, string Password)
         {
-            if (Passport.Length > 11)
+            if (GetSpecs().Any(x => x.PassportNumSpec == Passport) || Passport.Length > 11 || 
+                GetSpecs().Any(x => x.NomTelSpec == NomTel) || IsExist(Login))
             {
-                MessageBox.Show("Неверный ввод паспортных данных.");
                 return false;
             }
             Specialist specialist = new Specialist
@@ -43,6 +43,10 @@ namespace Agency.Services
             context.Specialists.Add(specialist);
             context.SaveChanges();
             return true;
+        }
+        public bool IsExist(string Login)
+        {
+            return GetSpecs().Any(x => x.LoginSpec == Login);
         }
         public bool Remove(int id)
         {
@@ -70,6 +74,10 @@ namespace Agency.Services
             }
             if (option == "Номер телефона")
             {
+                if (GetSpecs().Any(x => x.NomTelSpec == newValue))
+                {
+                    return false;
+                }
                 Spec.NomTelSpec = newValue;
             }
             if (option == "Логин")
@@ -80,15 +88,16 @@ namespace Agency.Services
             {
                 Spec.PasswordSpec = newValue;
             }
-            try
+            if (option == "Паспорт")
             {
-                context.SaveChanges();
-                return true;
+                if (GetSpecs().Any(x => x.PassportNumSpec == newValue) || newValue.Length > 11)
+                {
+                    return false;
+                }
+                Spec.PassportNumSpec = newValue;
             }
-            catch
-            {
-                return false;
-            }
+            context.SaveChanges();
+            return true;
         }
     }
 }

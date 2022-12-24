@@ -27,13 +27,16 @@ namespace Agency.Services
         {
             return GetApartments().FirstOrDefault(apartment => apartment.Requests.Contains(request));
         }
+        public bool IsExist(string KadastrNom)
+        {
+            return GetApartments().Any(x => x.KadastrNom == KadastrNom);
+        }
         public bool Add(string KadastrNom, string Adress, double LiveSpace, 
             double GeneralSpace, int CountRooms, int Floor, string TypePostr, 
             int YearPostr, string Metro, string Furniture, decimal Price, int ID_owner)
         {
-            if (LiveSpace > GeneralSpace || CountRooms <= 0 || Floor <= 0 || YearPostr <= 0 || Price <= 0)
+            if (LiveSpace > GeneralSpace || CountRooms <= 0 || Floor <= 0 || YearPostr <= 0 || Price <= 0 || IsExist(KadastrNom))
             {
-                MessageBox.Show("Неверный ввод данных.");
                 return false;
             }
             Adre adres = new Adre()
@@ -46,7 +49,6 @@ namespace Agency.Services
 
             Apartment apartment = new Apartment
             {
-
                 KadastrNom = KadastrNom,
                 IdAdres = adres.IdAdres,
                 LiveSpace = LiveSpace,
@@ -93,7 +95,6 @@ namespace Agency.Services
             }
             else
             {
-                MessageBox.Show("На квартиру найдены сделки или запросы. Удаление невозможно.");
                 return false;
             }
         }

@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace Agency.Forms.User_Controls.DirectorUserControls
 {
-    public partial class UCAllUsers : UserControl
+    public partial class UCUsersDir : UserControl
     {
         private UCUsersList ucUsers;
         private UCAddNewUser ucAddNewUser;
         private UCRemoveUser ucRemoveUser;
-        public UCAllUsers()
+        public UCUsersDir()
         {
             InitializeComponent();
         }
@@ -26,28 +26,27 @@ namespace Agency.Forms.User_Controls.DirectorUserControls
             if (this.Controls.Contains(ucRemoveUser)) { ucRemoveUser.Hide(); }
 
         }
-
-        private void btnUsers_Click(object sender, EventArgs e)
+        private void lblUsersList_Click(object sender, EventArgs e)
         {
             HideAll();
             ucUsers = new();
-            ucUsers.Location = new Point(3, 38);
+            ucUsers.Location = new Point(0, 37);
             this.Controls.Add(ucUsers);
         }
 
-        private void btnAddUser_Click(object sender, EventArgs e)
+        private void lblAddNewUser_Click(object sender, EventArgs e)
         {
             HideAll();
             ucAddNewUser = new();
-            ucAddNewUser.Location = new Point(3, 38);
+            ucAddNewUser.Location = new Point(0, 37);
             this.Controls.Add(ucAddNewUser);
         }
 
-        private void btnRemoveUser_Click(object sender, EventArgs e)
+        private void lblRemoveUser_Click(object sender, EventArgs e)
         {
             HideAll();
             ucRemoveUser = new();
-            ucRemoveUser.Location = new Point(3, 38);
+            ucRemoveUser.Location = new Point(0, 37);
             this.Controls.Add(ucRemoveUser);
         }
     }

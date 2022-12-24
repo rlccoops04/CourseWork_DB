@@ -32,12 +32,12 @@
             this.lblCurrPage = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblMyDeals = new System.Windows.Forms.Label();
+            this.lblExit = new System.Windows.Forms.Label();
             this.lblAddReq = new System.Windows.Forms.Label();
             this.lblMyReqs = new System.Windows.Forms.Label();
             this.lblAparts = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblProfile = new System.Windows.Forms.Label();
-            this.lblExit = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,7 +76,21 @@
             this.lblMyDeals.Size = new System.Drawing.Size(80, 23);
             this.lblMyDeals.TabIndex = 9;
             this.lblMyDeals.Text = "Покупки";
-            this.lblMyDeals.Click += new System.EventHandler(this.lblMyDeals_Click);
+            this.lblMyDeals.Click += new System.EventHandler(this.ShowMyDeals_Click);
+            // 
+            // lblExit
+            // 
+            this.lblExit.AutoSize = true;
+            this.lblExit.BackColor = System.Drawing.Color.Transparent;
+            this.lblExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblExit.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblExit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblExit.Location = new System.Drawing.Point(845, 12);
+            this.lblExit.Name = "lblExit";
+            this.lblExit.Size = new System.Drawing.Size(62, 23);
+            this.lblExit.TabIndex = 8;
+            this.lblExit.Text = "Выход";
+            this.lblExit.Click += new System.EventHandler(this.Exit_Click);
             // 
             // lblAddReq
             // 
@@ -89,7 +103,7 @@
             this.lblAddReq.Size = new System.Drawing.Size(144, 23);
             this.lblAddReq.TabIndex = 7;
             this.lblAddReq.Text = "Добавить заявку";
-            this.lblAddReq.Click += new System.EventHandler(this.lblAddReq_Click);
+            this.lblAddReq.Click += new System.EventHandler(this.AddRequest_Click);
             // 
             // lblMyReqs
             // 
@@ -102,7 +116,7 @@
             this.lblMyReqs.Size = new System.Drawing.Size(105, 23);
             this.lblMyReqs.TabIndex = 6;
             this.lblMyReqs.Text = "Мои заявки";
-            this.lblMyReqs.Click += new System.EventHandler(this.lblMyReqs_Click);
+            this.lblMyReqs.Click += new System.EventHandler(this.ShowMyRequests_Click);
             // 
             // lblAparts
             // 
@@ -115,7 +129,7 @@
             this.lblAparts.Size = new System.Drawing.Size(88, 23);
             this.lblAparts.TabIndex = 5;
             this.lblAparts.Text = "Квартиры";
-            this.lblAparts.Click += new System.EventHandler(this.lblAparts_Click);
+            this.lblAparts.Click += new System.EventHandler(this.ShowAparts_Click);
             // 
             // label2
             // 
@@ -139,21 +153,7 @@
             this.lblProfile.Size = new System.Drawing.Size(122, 23);
             this.lblProfile.TabIndex = 3;
             this.lblProfile.Text = "Мой профиль";
-            this.lblProfile.Click += new System.EventHandler(this.lblProfile_Click);
-            // 
-            // lblExit
-            // 
-            this.lblExit.AutoSize = true;
-            this.lblExit.BackColor = System.Drawing.Color.Transparent;
-            this.lblExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblExit.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblExit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblExit.Location = new System.Drawing.Point(845, 12);
-            this.lblExit.Name = "lblExit";
-            this.lblExit.Size = new System.Drawing.Size(62, 23);
-            this.lblExit.TabIndex = 8;
-            this.lblExit.Text = "Выход";
-            this.lblExit.Click += new System.EventHandler(this.lblExit_Click);
+            this.lblProfile.Click += new System.EventHandler(this.MyProfile_Click);
             // 
             // BuyerInterface
             // 
@@ -164,10 +164,12 @@
             this.ClientSize = new System.Drawing.Size(914, 609);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblCurrPage);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "BuyerInterface";
-            this.Text = "BuyerInterface";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Агенство недвижимости";
             this.Load += new System.EventHandler(this.BuyerInterface_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

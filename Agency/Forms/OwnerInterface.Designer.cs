@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OwnerInterface));
             this.lblCurrPage = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblMyProfile = new System.Windows.Forms.Label();
@@ -73,7 +74,7 @@
             this.lblMyProfile.Size = new System.Drawing.Size(122, 23);
             this.lblMyProfile.TabIndex = 9;
             this.lblMyProfile.Text = "Мой профиль";
-            this.lblMyProfile.Click += new System.EventHandler(this.lblMyProfile_Click);
+            this.lblMyProfile.Click += new System.EventHandler(this.MyProfile_Click);
             // 
             // lblAddApart
             // 
@@ -86,7 +87,7 @@
             this.lblAddApart.Size = new System.Drawing.Size(156, 23);
             this.lblAddApart.TabIndex = 7;
             this.lblAddApart.Text = "Продать квартиру";
-            this.lblAddApart.Click += new System.EventHandler(this.lblAddApart_Click);
+            this.lblAddApart.Click += new System.EventHandler(this.AddApart_Click);
             // 
             // lblMyAparts
             // 
@@ -99,7 +100,7 @@
             this.lblMyAparts.Size = new System.Drawing.Size(128, 23);
             this.lblMyAparts.TabIndex = 6;
             this.lblMyAparts.Text = "Мои квартиры";
-            this.lblMyAparts.Click += new System.EventHandler(this.lblMyAparts_Click);
+            this.lblMyAparts.Click += new System.EventHandler(this.ShowMyAparts_Click);
             // 
             // lblAparts
             // 
@@ -112,7 +113,7 @@
             this.lblAparts.Size = new System.Drawing.Size(88, 23);
             this.lblAparts.TabIndex = 5;
             this.lblAparts.Text = "Квартиры";
-            this.lblAparts.Click += new System.EventHandler(this.lblAparts_Click);
+            this.lblAparts.Click += new System.EventHandler(this.ShowAparts_Click);
             // 
             // label2
             // 
@@ -136,7 +137,7 @@
             this.lblExit.Size = new System.Drawing.Size(62, 23);
             this.lblExit.TabIndex = 3;
             this.lblExit.Text = "Выход";
-            this.lblExit.Click += new System.EventHandler(this.lblExit_Click);
+            this.lblExit.Click += new System.EventHandler(this.Exit_Click);
             // 
             // OwnerInterface
             // 
@@ -147,8 +148,12 @@
             this.ClientSize = new System.Drawing.Size(914, 609);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblCurrPage);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "OwnerInterface";
-            this.Text = "OwnerInterface";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Агенство недвижимости";
             this.Load += new System.EventHandler(this.OwnerInterface_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

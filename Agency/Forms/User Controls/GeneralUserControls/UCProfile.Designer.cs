@@ -166,6 +166,7 @@
             this.cbOption.Items.AddRange(new object[] {
             "ФИО",
             "Номер телефона",
+            "Паспорт",
             "Логин",
             "Пароль"});
             this.cbOption.Location = new System.Drawing.Point(666, 62);
@@ -287,7 +288,7 @@
             this.Controls.Add(this.lblNomTel);
             this.Controls.Add(this.lblPassport);
             this.Name = "UCProfile";
-            this.Size = new System.Drawing.Size(932, 570);
+            this.Size = new System.Drawing.Size(932, 303);
             this.Load += new System.EventHandler(this.UCBuyerProfile_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

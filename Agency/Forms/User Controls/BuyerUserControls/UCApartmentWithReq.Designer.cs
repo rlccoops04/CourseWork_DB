@@ -135,13 +135,13 @@
             // btnAddReq
             // 
             this.btnAddReq.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnAddReq.Location = new System.Drawing.Point(748, 162);
+            this.btnAddReq.Location = new System.Drawing.Point(711, 168);
             this.btnAddReq.Name = "btnAddReq";
-            this.btnAddReq.Size = new System.Drawing.Size(128, 27);
+            this.btnAddReq.Size = new System.Drawing.Size(165, 27);
             this.btnAddReq.TabIndex = 18;
-            this.btnAddReq.Text = "Купить";
+            this.btnAddReq.Text = "Добавить заявку";
             this.btnAddReq.UseVisualStyleBackColor = true;
-            this.btnAddReq.Click += new System.EventHandler(this.btnAddReq_Click);
+            this.btnAddReq.Click += new System.EventHandler(this.AddRequest_Click);
             // 
             // UCApartmentWithReq
             // 

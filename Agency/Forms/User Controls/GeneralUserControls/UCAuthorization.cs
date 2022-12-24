@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Agency.Forms;
+﻿using Agency.Forms;
 using Agency.Forms.User_Controls;
 using Agency.Services;
 
@@ -16,45 +7,83 @@ namespace Agency
     public partial class UCAuthorization : UserControl
     {
 
-        private BuyerService buyerServ = new();
-        private OwnerService ownerServ = new();
+        private BuyerService buyerServ;
+        private OwnerService ownerServ;
+        private SpecialistService specServ;
         public UCAuthorization()
         {
+            buyerServ = new();
+            ownerServ = new();
+            specServ = new();
             InitializeComponent();
         }
-
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            this.Parent.Hide();
-            DirectorInterface directorInterface = new();
-            directorInterface.Show();
-            SpecialistInterface specialistInterface = new(2);
-            specialistInterface.Show();
-            BuyerInterface buyerInterface = new(1);
-            buyerInterface.Show();
-            OwnerInterface ownerInterface = new(1);
-            ownerInterface.Show();
-            /*            if (buyerServ.IsExist(tbLogin.Text, tbPassword.Text))
-                        {
-                            this.Hide();
-                            this.Parent.Hide();
-                            BuyerInterface buyerInterface = new(buyerServ.GetBuyer(tbLogin.Text));
-                            buyerInterface.Show();
-
-                            return;
-                        }*/
-            MessageBox.Show("Неверный логин или пароль", "Ошибка");
+            if (tbLogin.Text == "admin" && tbPassword.Text == "admin")
+            {
+                this.Hide();
+                this.Parent.Hide();
+                DirectorInterface directorInterface = new();
+                directorInterface.Show();
+            }
+            else if (buyerServ.IsExist(tbLogin.Text))
+            {
+                var buyer = buyerServ.GetBuyer(tbLogin.Text);
+                if (tbPassword.Text == buyer.PasswordBuyer)
+                {
+                    this.Hide();
+                    this.Parent.Hide();
+                    BuyerInterface buyerInterface = new(buyer.IdBuyer);
+                    buyerInterface.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Неверный логин или пароль");
+                }
+            }
+            else if (ownerServ.IsExist(tbLogin.Text))
+            {
+                var owner = ownerServ.GetOwner(tbLogin.Text);
+                if (tbPassword.Text == owner.PasswordOwner)
+                {
+                    this.Hide();
+                    this.Parent.Hide();
+                    OwnerInterface ownerInterface = new(owner.IdOwner);
+                    ownerInterface.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Неверный логин или пароль");
+                }
+            }
+            else if (specServ.IsExist(tbLogin.Text))
+            {
+                var spec = specServ.GetSpecialist(tbLogin.Text);
+                if (tbPassword.Text == spec.PasswordSpec)
+                {
+                    this.Hide();
+                    this.Parent.Hide();
+                    SpecialistInterface specialistInterface = new(spec.IdSpec);
+                    specialistInterface.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Неверный логин или пароль");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Неверный логин или пароль", "Ошибка");
+            }
 
         }
-
         private void btnRegistration_Click(object sender, EventArgs e)
         {
             UCRegistration ucReg = new();
             ucReg.Location = new Point(0, 10);
-            this.Hide();
             this.Parent.Controls.Add(ucReg);
             this.Parent.Size = new Size(380, 450);
+            this.Dispose();
             ucReg.Show();
         }
     }

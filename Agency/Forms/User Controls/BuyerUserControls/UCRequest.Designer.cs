@@ -30,7 +30,7 @@
         {
             this.lblDate = new System.Windows.Forms.Label();
             this.lblReqID = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRemoveRequest = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblDate
@@ -53,23 +53,23 @@
             this.lblReqID.TabIndex = 2;
             this.lblReqID.Text = "Номер запроса: ";
             // 
-            // button1
+            // btnRemoveRequest
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(734, 7);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(140, 29);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Отменить";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnRemoveRequest.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnRemoveRequest.Location = new System.Drawing.Point(734, 7);
+            this.btnRemoveRequest.Name = "btnRemoveRequest";
+            this.btnRemoveRequest.Size = new System.Drawing.Size(140, 29);
+            this.btnRemoveRequest.TabIndex = 3;
+            this.btnRemoveRequest.Text = "Отменить";
+            this.btnRemoveRequest.UseVisualStyleBackColor = true;
+            this.btnRemoveRequest.Click += new System.EventHandler(this.RemoveRequest_Click);
             // 
             // UCRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnRemoveRequest);
             this.Controls.Add(this.lblReqID);
             this.Controls.Add(this.lblDate);
             this.Name = "UCRequest";
@@ -83,6 +83,6 @@
         #endregion
         private Label lblDate;
         private Label lblReqID;
-        private Button button1;
+        private Button btnRemoveRequest;
     }
 }
